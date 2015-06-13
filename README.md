@@ -1,2 +1,24 @@
 # fore-end.js
-This repository is applied to record general development modules. 
+******************文件介绍******************************************
+
+包含jspackage开发包文件夹：用于开发代码编写;
+	csspackage常用样式文件夹；
+	imagepackage常用图片文件夹，比如关闭按钮；
+	userpackage用户代码包文件夹：用于使用测试;
+	test.html页面：显示resultstest和interfacetest的结果（尚未编写）;
+
+******************内容介绍******************************************
+
+--------------jspackage---------------------------
+
+--------------csspackage--------------------------
+
+--------------imagepackage------------------------
+
+close-1.png 关闭图标(空心);
+close-2.png 关闭图标(实心);
+download.png 下载图标;
+login.png 登录图标;
+searchIn.png 搜索图标;
+
+********************************************************************
