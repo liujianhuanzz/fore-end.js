@@ -1,1 +1,30 @@
 @charset "utf-8"
+
+@font-face{
+<<<<<<< HEAD
+	font-family:'FuturaFont';
+	src:url('../fontpackage/FUTURAN.TTF');
+}
+
+@font-face{
+	font-family: 'FuturaBKBTFont';
+	src:url('../fontpackage/FUTURA BOOK ITALIC BT.TTF');
+=======
+	font-family: FuturaFont;
+	src:url('../fontpackage/FUTURAN.TFF');
+}
+
+@font-face{
+	font-family: FuturaBKBTFont;
+	src:url('../fontpackage/FUTURA BOOK ITALIC BT.TTF');
+	font-weight: bold;
+>>>>>>> master
+}
+
+@font-face {font-family: 'iconfont';
+    src: url('../fontpackage/iconfont.eot'); /* IE9*/
+    src: url('../fontpackage/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fontpackage/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('../fontpackage/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../fontpackage/iconfont.svg#svgFontName') format('svg'); /* iOS 4.1- */
+}
