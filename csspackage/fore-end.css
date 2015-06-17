@@ -1,24 +1,14 @@
 @charset "utf-8"
 
 @font-face{
-<<<<<<< HEAD
 	font-family:'FuturaFont';
 	src:url('../fontpackage/FUTURAN.TTF');
-}
-
-@font-face{
-	font-family: 'FuturaBKBTFont';
-	src:url('../fontpackage/FUTURA BOOK ITALIC BT.TTF');
-=======
-	font-family: FuturaFont;
-	src:url('../fontpackage/FUTURAN.TFF');
 }
 
 @font-face{
 	font-family: FuturaBKBTFont;
 	src:url('../fontpackage/FUTURA BOOK ITALIC BT.TTF');
 	font-weight: bold;
->>>>>>> master
 }
 
 @font-face {font-family: 'iconfont';

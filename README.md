@@ -11,6 +11,8 @@
 
 --------------jspackage---------------------------
 
+fore-end.js中添加fe_draggable方法，调用形式：$(selector).fe_draggable(handler),其中handler可以传入'.xxx'或者'#xxx'；
+
 --------------csspackage--------------------------
 <<<<<<< HEAD
 fore-end.css引入字体，2015.6.14
