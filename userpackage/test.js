@@ -48,11 +48,11 @@ function testLogin(){
 		$('.loginDiv').remove();
 	}
 	/*
-	静态调用
+	静态调用*/
 	$.fe_login({
 		'parent':'#testContent',
 		'title':'xxx系统'
-	});*/
+	});
 
-	$('#testContent').fe_login({'title':'模块化测试'});//实例化调用
+	//$('#testContent').fe_login({'title':'模块化测试'});//实例化调用
 }

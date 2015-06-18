@@ -43,7 +43,7 @@
 		var fail_callback = object['failure'];
 		var parentEle = object['parent'] === undefined ? 'body' : object['parent'];
 
-		$(parentEle).fe_login({'title':title,'type':type,'page':page,'success':callback,'failure':callback});
+		$(parentEle).fe_login({'title':titleName,'type':type,'page':page,'success':succ_callback,'failure':fail_callback});
 	}
 
 })(jQuery);
