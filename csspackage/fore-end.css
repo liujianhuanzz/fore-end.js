@@ -18,3 +18,35 @@
     url('../fontpackage/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
     url('../fontpackage/iconfont.svg#svgFontName') format('svg'); /* iOS 4.1- */
 }
+
+/*一般浮动窗*/
+.windowBody {
+	padding: 10px;
+	border: 1px solid rgb(214,214,214);
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius: 5px;
+	-webkit-box-shadow:0 0 10px rgba(0,0,0,.7);
+	-moz-box-shadow:0 0 10px rgba(0,0,0,.7);
+	box-shadow:0 0 10px rgba(0,0,0,.7);
+	z-index: 2;
+}
+.windowTitle{
+	margin-bottom: 10px;
+	height: 35px;
+	padding-left: 10px;
+	background-color: #0966a8;
+	color: white;
+	line-height: 35px;
+	font-size: 75%;
+}
+.windowClose,.windowFade {
+	width: 19px;
+	height: 19px;
+	position: absolute;
+	right: 20px;
+	top: 18px;
+}
+.windowClose:hover,.windowFade:hover {
+	cursor: pointer;
+}

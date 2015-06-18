@@ -1,31 +1,113 @@
 @charset "utf-8";
-
-body {
-	font-family: 'FuturaFont','微软雅黑';
-	font-size: 36px;
-}
-
-input {
-	display: inline-block;
-	width: 100px;
-	height: 40px;
-	font-family: 'FuturaFont','微软雅黑';
-	font-size: 20px;
-	border-radius: 5px;
-	background-color: #0966a8;
-	color: #fff;
-	cursor: pointer;
-}
-input:hover{
-	background-color: #104579;
-	color: #7ee5d6;
-}
-
-#testContent{
-	width: 1000px;
-	height: 500px;
-	border: 1px solid #0966a8;
+#loginDiv {
+	width: 520px;
+	height: 365px;
 	position: absolute;
-	bottom: 5px;
-	left:calc(50% - 500px);
+}
+
+#loginContent {
+	width: 520px;
+	height: 320px;
+	position: relative;
+}
+
+#loginTitle {
+	width: 500px;
+	height: 68px;
+	font-size: 200%;
+	line-height: 68px;
+	border-bottom: 2px solid #99ccff;
+	text-align: right;
+	padding-right: 20px;
+	color: #3366cc;
+	position: relative;
+}
+
+#loginTitle img {
+	width: 56px;
+	height: 56px;
+	position: absolute;
+	top: 6px;
+	left: 50px;
+}
+
+#loginUsername {
+	width: 460px;
+	height: 60px;
+	font-size: 120%;
+	line-height: 60px;
+	color: #369;
+	text-align: left;
+	padding-left: 40px;
+}
+
+#loginUsername span{
+	font-size: 60%;
+}
+
+#loginUsername input{
+	width: 300px;
+	height: 34px;
+	font-size: 60%;
+	border: 2px solid #999;
+	border-radius: 5px;
+}
+
+#loginPassword {
+	width: 460px;
+	height: 60px;
+	font-size: 120%;
+	line-height: 60px;
+	color: #486;
+	text-align: left;
+	padding-left: 40px;
+}
+
+#loginPassword span{
+	font-size: 60%;
+}
+
+#loginPassword input{
+	width: 300px;
+	height: 34px;
+	font-size: 60%;
+	border: 2px solid #999;
+	border-radius: 5px;
+}
+
+.loginButton {
+	width: 130px;
+	font-size: 65%;
+	position: absolute;
+	height: 36px;
+	line-height: 36px;
+	border: 2px solid #9cf;
+	border-radius: 36px;
+	text-align: center;
+	background-color: #f4fcff;
+	box-shadow: 2px 2px 5px rgba(0,0,0,.5);
+}
+
+.loginButton:hover{
+	background-color: #fafcff;
+	cursor: pointer;
+	border: 2px solid #3cf;
+}
+
+#loginSubmit{
+	color: green;
+	left: 140px;
+	top: 250px;
+}
+
+#loginSubmit:active{
+	color: green;
+	left: 140px;
+	top: 250px;
+}
+
+#loginReset {
+	color: #830;
+	left: 310px;
+	top: 250px;
 }
