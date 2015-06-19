@@ -2,13 +2,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link type="text/css" rel="stylesheet" href="user.css"/>
+<link rel="stylesheet" type="text/css" href="csspackage/fore-end.css">
+<link type="text/css" rel="stylesheet" href="userpackage/user.css"/>
+<link type="text/css" rel="stylesheet" href="userpackage/test.css"/>
 <script type="text/javascript" src="jspackage/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src='jspackage/fore-end.js'></script>
-<script type="text/javascript" src='userpackage'></script>
+<script type="text/javascript" src='userpackage/user.js'></script>
+<script type="text/javascript" src='userpackage/test.js'></script>
 <title>test</title>
 </head>
 <body>
   <div>测试提交代码</div>
+  <input type="button" value="测试拖拽" onclick="testDraggable();">
+  <input type="button" value="测试登录" onclick="testLogin();">
+  <div id="testContent"></div>
 </body>
 </html>
