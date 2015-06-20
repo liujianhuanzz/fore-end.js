@@ -20,6 +20,16 @@
 
 		$(dragEle).fe_draggable({'handler':handlerEle});
 	}
+	
+	$.getStyle=function(obj,attr){//获取元素的样式属性值
+    		if(obj.currentStyle){
+		    return parseFloat(obj.currentStyle[attr]);//兼容IE
+		    console.log(obj.currentStyle[attr]);
+		}else{
+		    return parseFloat(getComputedStyle(obj,false)[attr]);//兼容FireFox/Chrome
+		    console.log(getComputedStyle(obj,false)[attr])
+		}
+	 }
 
 	$.fn.fe_login = function(object){//登录实例化方法
 
@@ -122,6 +132,8 @@ FEObject.prototype.createLoginPage = function(parentEle,titleName){
 	loginDiv.id = 'loginDiv';
 	loginDiv.className = 'windowBody';
 	parentEle.appendChild(loginDiv);
+	loginDiv.style.left=($.getStyle(parentEle,'width')-$.getStyle(loginDiv,'width'))/2+'px';
+	loginDiv.style.top=($.getStyle(parentEle,'height')-$.getStyle(loginDiv,'height'))/2+'px';
 	/*创建题目容器*/
 	var titleDiv = document.createElement('div');
 	titleDiv.id = 'loginDivTitle';
