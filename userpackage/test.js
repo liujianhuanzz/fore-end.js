@@ -56,3 +56,7 @@ function testLogin(){
 
 	//$('#testContent').fe_login({'title':'模块化测试'});//实例化调用
 }
+//测试生成Highcharts图表
+function testChart(){
+	$('#testContent').children().remove();
+}

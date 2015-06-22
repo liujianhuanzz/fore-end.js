@@ -14,22 +14,22 @@
 
 	};
 
-	$.fe_draggable = function(object){//拖拽静态方法
-		var dragEle = object['element'];
-		var handlerEle = object['handler'];
-
-		$(dragEle).fe_draggable({'handler':handlerEle});
-	}
-	
-	$.getStyle=function(obj,attr){//获取元素的样式属性值
-    		if(obj.currentStyle){
+    $.getStyle=function(obj,attr){//获取元素的样式属性值
+    	if(obj.currentStyle){
 		    return parseFloat(obj.currentStyle[attr]);//兼容IE
 		    console.log(obj.currentStyle[attr]);
 		}else{
 		    return parseFloat(getComputedStyle(obj,false)[attr]);//兼容FireFox/Chrome
 		    console.log(getComputedStyle(obj,false)[attr])
 		}
-	 }
+    }
+
+	$.fe_draggable = function(object){//拖拽静态方法
+		var dragEle = object['element'];
+		var handlerEle = object['handler'];
+
+		$(dragEle).fe_draggable({'handler':handlerEle});
+	}
 
 	$.fn.fe_login = function(object){//登录实例化方法
 
@@ -125,6 +125,7 @@ FEObject.prototype.drag = function(element,handler){
 
 	return _this;
 }
+
 /*登录页面创建*/
 FEObject.prototype.createLoginPage = function(parentEle,titleName){
 	/*创建底层容器*/
