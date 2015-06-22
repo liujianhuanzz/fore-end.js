@@ -1,6 +1,8 @@
 //测试拖拽函数
 function testDraggable(){
 
+	$('#testContent').children().remove();
+	
 	if($('.testDiv')){
 		$('.testDiv').remove();
 	}
