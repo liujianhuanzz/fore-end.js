@@ -14,6 +14,16 @@
 
 	};
 
+    $.getStyle=function(obj,attr){//获取元素的样式属性值
+    	if(obj.currentStyle){
+		    return parseFloat(obj.currentStyle[attr]);//兼容IE
+		    console.log(obj.currentStyle[attr]);
+		}else{
+		    return parseFloat(getComputedStyle(obj,false)[attr]);//兼容FireFox/Chrome
+		    console.log(getComputedStyle(obj,false)[attr])
+		}
+    }
+
 	$.fe_draggable = function(object){//拖拽静态方法
 		var dragEle = object['element'];
 		var handlerEle = object['handler'];
@@ -115,6 +125,7 @@ FEObject.prototype.drag = function(element,handler){
 
 	return _this;
 }
+
 /*登录页面创建*/
 FEObject.prototype.createLoginPage = function(parentEle,titleName){
 	/*创建底层容器*/
@@ -122,6 +133,8 @@ FEObject.prototype.createLoginPage = function(parentEle,titleName){
 	loginDiv.id = 'loginDiv';
 	loginDiv.className = 'windowBody';
 	parentEle.appendChild(loginDiv);
+	loginDiv.style.left=($.getStyle(parentEle,'width')-$.getStyle(loginDiv,'width'))/2+'px';
+	loginDiv.style.top=($.getStyle(parentEle,'height')-$.getStyle(loginDiv,'height'))/2+'px';
 	/*创建题目容器*/
 	var titleDiv = document.createElement('div');
 	titleDiv.id = 'loginDivTitle';
