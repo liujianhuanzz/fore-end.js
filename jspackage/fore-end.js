@@ -47,7 +47,7 @@
 	}
 
     $.fe_getStyle=function(selector,attr){//获取元素的样式属性值静态方法
-    	return $(selector).fe_getStyle(attr);
+    		return $(selector).fe_getStyle(attr);    	
     }
 
     $.fn.fe_getStyle = function(attr){//获取元素的样式属性的实例化方法
@@ -135,8 +135,8 @@ FEObject.prototype.createLoginPage = function(parentEle,titleName){
 	loginDiv.id = 'loginDiv';
 	loginDiv.className = 'windowBody';
 	parentEle.appendChild(loginDiv);
-	loginDiv.style.left=($.getStyle(parentEle,'width')-$.getStyle(loginDiv,'width'))/2+'px';
-	loginDiv.style.top=($.getStyle(parentEle,'height')-$.getStyle(loginDiv,'height'))/2+'px';
+	loginDiv.style.left=($.fe_getStyle(parentEle,'width')-$.fe_getStyle(loginDiv,'width'))/2+'px';
+	loginDiv.style.top=($.fe_getStyle(parentEle,'height')-$.fe_getStyle(loginDiv,'height'))/2+'px';
 	/*创建题目容器*/
 	var titleDiv = document.createElement('div');
 	titleDiv.id = 'loginDivTitle';
