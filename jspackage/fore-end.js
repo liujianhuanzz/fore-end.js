@@ -14,16 +14,6 @@
 
 	};
 
-    $.getStyle=function(obj,attr){//获取元素的样式属性值
-    	if(obj.currentStyle){
-		    return parseFloat(obj.currentStyle[attr]);//兼容IE
-		    console.log(obj.currentStyle[attr]);
-		}else{
-		    return parseFloat(getComputedStyle(obj,false)[attr]);//兼容FireFox/Chrome
-		    console.log(getComputedStyle(obj,false)[attr])
-		}
-    }
-
 	$.fe_draggable = function(object){//拖拽静态方法
 		var dragEle = object['element'];
 		var handlerEle = object['handler'];
@@ -55,6 +45,18 @@
 
 		$(parentEle).fe_login({'title':titleName,'type':type,'page':page,'success':succ_callback,'failure':fail_callback});
 	}
+
+    $.fe_getStyle=function(selector,attr){//获取元素的样式属性值静态方法
+    		return $(selector).fe_getStyle(attr);    	
+    }
+
+    $.fn.fe_getStyle = function(attr){//获取元素的样式属性的实例化方法
+    	if(this[0].currentStyle){//兼容IE
+    		return parseFloat(this[0].currentStyle[attr]);
+    	}else{
+    		return parseFloat(getComputedStyle(this[0],false)[attr]);//兼容W3C
+    	}
+    }
 
 })(jQuery);
 
@@ -133,8 +135,8 @@ FEObject.prototype.createLoginPage = function(parentEle,titleName){
 	loginDiv.id = 'loginDiv';
 	loginDiv.className = 'windowBody';
 	parentEle.appendChild(loginDiv);
-	loginDiv.style.left=($.getStyle(parentEle,'width')-$.getStyle(loginDiv,'width'))/2+'px';
-	loginDiv.style.top=($.getStyle(parentEle,'height')-$.getStyle(loginDiv,'height'))/2+'px';
+	loginDiv.style.left=($.fe_getStyle(parentEle,'width')-$.fe_getStyle(loginDiv,'width'))/2+'px';
+	loginDiv.style.top=($.fe_getStyle(parentEle,'height')-$.fe_getStyle(loginDiv,'height'))/2+'px';
 	/*创建题目容器*/
 	var titleDiv = document.createElement('div');
 	titleDiv.id = 'loginDivTitle';
