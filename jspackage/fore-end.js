@@ -46,16 +46,27 @@
 		$(parentEle).fe_login({'title':titleName,'type':type,'page':page,'success':succ_callback,'failure':fail_callback});
 	}
 
-    $.fe_getStyle=function(selector,attr){//获取元素的样式属性值静态方法
-    		return $(selector).fe_getStyle(attr);    	
+    $.fe_getStyle = function(selector,attr){//获取元素的样式属性值静态方法
+    	return $(selector).fe_getStyle(attr);    	
     }
 
     $.fn.fe_getStyle = function(attr){//获取元素的样式属性的实例化方法
     	if(this[0].currentStyle){//兼容IE
     		return parseFloat(this[0].currentStyle[attr]);
     	}else{
-    		return parseFloat(getComputedStyle(this[0],false)[attr]);//兼容W3C
+    		return parseFloat(window.getComputedStyle(this[0],false)[attr]);//兼容W3C
     	}
+    }
+
+    $.fe_addTable = function(selector,obj){//添加表格的静态方法
+    	$(selector).fe_addTable(obj);
+    }
+
+    $.fn.fe_addTable = function(obj){//添加表格的实例化方法
+    	$.each(this,function(index,el){
+    		var _this = this;
+    		createObject().createTable(_this,obj);
+    	});
     }
 
 })(jQuery);
@@ -81,8 +92,8 @@ FEObject.prototype.drag = function(element,handler){
 
 	handler.onmousedown = function(e){
 		var e = e || window.event;
-		event.stopPropagation();
-		event.preventDefault();
+		e.stopPropagation();
+		e.preventDefault();
 		var e_top_d = e.clientY;
 		var e_left_d = e.clientX;
 		var selfTop = element.offsetTop;
@@ -222,7 +233,7 @@ FEObject.prototype.createLoginPage = function(parentEle,titleName){
 
 	return this;
 }
-
+/*登录点击事件*/
 FEObject.prototype.login = function(type,page,succ_callback,fail_callback){
 
 	var userEle = document.getElementById('inputLoginUsername');
@@ -278,4 +289,67 @@ FEObject.prototype.login = function(type,page,succ_callback,fail_callback){
 			});
 		}
 	});
+}
+/*生成表格*/
+FEObject.prototype.createTable = function(container,obj){
+
+	//获取表格信息
+	var tableHeader = obj['tableHeader'];
+	var tableContent = obj['tableContent'];
+	var callback = obj['callback'];
+
+	//生成表格
+	var tableEle = document.createElement('table');
+	tableEle.className = 'standTable';
+	tableEle.cellspacing = '0';
+	tableEle.cellpadding = '0';
+	container.appendChild(tableEle);
+
+	//添加表头信息
+	var headTr = document.createElement('tr');
+	tableEle.appendChild(headTr);
+	var headFragment = document.createDocumentFragment();
+	for(var i=0, l=tableHeader.length; i<l; i++){
+		var headTh = document.createElement('th');
+		headTh.className = 'headTh'+ i;
+		var headText = document.createTextNode(tableHeader[i]);
+		headTh.appendChild(headText);
+		headFragment.appendChild(headTh);
+	}
+	headTr.appendChild(headFragment);
+	tableEle.appendChild(headTr);
+	
+	//添加表格内容
+	var contentFragment = document.createDocumentFragment();
+	var oddOrEven = true;
+	for(var key in tableContent){//遍历有几行
+		var contentTr = document.createElement('tr');
+
+		//为行绑定点击事件
+		if(window.addEventListener){//W3C
+			contentTr.addEventListener('click', callback,false);
+		}else if(window.attachEvent){//IE
+			contentTr.attachEvent('onclick',callback);
+		}
+		
+		//奇偶行换色
+		if(oddOrEven){
+			contentTr.className = 'evenTr';
+			oddOrEven = false;
+		}else{
+			contentTr.className = 'oddTr';
+			oddOrEven = true;
+		}
+
+		//遍历有几列
+		for(var i=0, l=tableContent[key].length; i<l; i++){
+			var contentTd = document.createElement('td');
+			contentTd.className = 'contentTd' + i;
+			var contentText = document.createTextNode(tableContent[key][i]);
+			contentTd.appendChild(contentText);
+			contentTr.appendChild(contentTd);
+		}
+		contentFragment.appendChild(contentTr);
+	}
+	tableEle.appendChild(contentFragment);
 }

@@ -27,9 +27,25 @@ user.js和user.css为模块中与用户相关的样式，可对其中属性和�
 
 三、fore-end.js中添加fe_getStyle方法，调用形式：
 	1.实例化调用：$(selector).fe_getStyle(attr);
-	2.静态调用：$.getStyle(selector,attr);其中selector为id选择器或者类选择器或者元素，即'#xxx'或者'.xxx'或者element,attr为属性名;
+	2.静态调用：$.fe_getStyle(selector,attr);其中selector为id选择器或者类选择器或者元素，即'#xxx'或者'.xxx'或者element,attr为属性名;
 
+四、fore-end.js中添加fe_addTable方法，调用形式：
+	1.实例化调用：$(selector).fe_addTable(obj);
+	2.静态调用：$.fe_addTable(selector,obj);其中selector为id选择器或者类选择器或者元素，即'#xxx'或者'.xxx'或者element,
+		obj的格式为：{
+						'tableHeader':['参数一','参数二','参数三','参数四','参数五',...],
+						'tableContent':{
+										 '1':['参数一','参数二','参数三','参数四','参数五',...],
+										 '2':['参数一','参数二','参数三','参数四','参数五',...],
+										 '3':['参数一','参数二','参数三','参数四','参数五',...],
+										 '4':['参数一','参数二','参数三','参数四','参数五',...],
+										 '5':['参数一','参数二','参数三','参数四','参数五',...]
+										 ...
+										},
+						'callback':function(){alert('填写执行函数')}
+					}
 
+					
 --------------csspackage--------------------------
 
 fore-end.css引入字体，2015.6.14
@@ -43,7 +59,7 @@ test.js添加测试图标按钮,2015.6.21
 test.js添加测试getStyle函数，2015.6.25
 test.css添加测试拖拽按钮，2015.6.17
 test.css添加测试登录按钮,2015.6.18
-test.css添加测试getStyle和测试图标按钮, 2015.6.25
+test.css添加测试getStyle和测试图表按钮, 2015.6.25
 
 user.css添加用户定义登录样式，2015.6.18
 --------------imagepackage------------------------
