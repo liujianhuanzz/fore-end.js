@@ -72,7 +72,7 @@
 })(jQuery);
 
 /*
-	forn-end对象封装过程
+	fore-end对象封装过程
 */
 var createObject = function(){
 	return new FEObject();
@@ -141,6 +141,7 @@ FEObject.prototype.drag = function(element,handler){
 
 /*登录页面创建*/
 FEObject.prototype.createLoginPage = function(parentEle,titleName){
+
 	/*创建底层容器*/
 	var loginDiv = document.createElement('div');
 	loginDiv.id = 'loginDiv';
@@ -148,18 +149,21 @@ FEObject.prototype.createLoginPage = function(parentEle,titleName){
 	parentEle.appendChild(loginDiv);
 	loginDiv.style.left=($.fe_getStyle(parentEle,'width')-$.fe_getStyle(loginDiv,'width'))/2+'px';
 	loginDiv.style.top=($.fe_getStyle(parentEle,'height')-$.fe_getStyle(loginDiv,'height'))/2+'px';
+
 	/*创建题目容器*/
 	var titleDiv = document.createElement('div');
 	titleDiv.id = 'loginDivTitle';
 	titleDiv.className = 'windowTitle';
 	titleDiv.innerHTML = titleName;
 	loginDiv.appendChild(titleDiv);
+
 	/*创建关闭按钮*/
 	var imgEle = document.createElement('img');
 	imgEle.id = 'loginClose';
 	imgEle.className = 'windowClose';
 	imgEle.src = 'imagepackage/close-1.png';
 	loginDiv.appendChild(imgEle);
+
 	/*创建内容容器*/
 	var conDiv = document.createElement('div');
 	conDiv.id = 'loginContent';
@@ -196,6 +200,7 @@ FEObject.prototype.createLoginPage = function(parentEle,titleName){
 	formEle.appendChild(userDiv);
 	userDiv.appendChild(userSpan);
 	userDiv.appendChild(userInput);
+
 	/*表单中密码区域*/
 	var passwordDiv = document.createElement('div');
 	passwordDiv.id = 'loginPassword';
@@ -208,6 +213,7 @@ FEObject.prototype.createLoginPage = function(parentEle,titleName){
 	formEle.appendChild(passwordDiv);
 	passwordDiv.appendChild(passwordSpan);
 	passwordDiv.appendChild(passwordInput);
+
 	/*登录和重置按钮*/
 	var loginBtn = document.createElement('div');
 	loginBtn.id = 'loginSubmit';
@@ -233,6 +239,7 @@ FEObject.prototype.createLoginPage = function(parentEle,titleName){
 
 	return this;
 }
+
 /*登录点击事件*/
 FEObject.prototype.login = function(type,page,succ_callback,fail_callback){
 
@@ -290,6 +297,7 @@ FEObject.prototype.login = function(type,page,succ_callback,fail_callback){
 		}
 	});
 }
+
 /*生成表格*/
 FEObject.prototype.createTable = function(container,obj){
 
@@ -318,7 +326,7 @@ FEObject.prototype.createTable = function(container,obj){
 	}
 	headTr.appendChild(headFragment);
 	tableEle.appendChild(headTr);
-	
+
 	//添加表格内容
 	var contentFragment = document.createDocumentFragment();
 	var oddOrEven = true;
