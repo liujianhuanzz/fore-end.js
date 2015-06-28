@@ -109,3 +109,7 @@ function testTable(){
 		'callback':function(){alert('填写执行函数')}
 	});
 }
+/*测试生成菜单*/
+function testMenu(){
+	$('#testContent').children().remove();
+}
