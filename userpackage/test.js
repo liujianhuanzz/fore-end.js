@@ -66,6 +66,21 @@ function testGetStyle(){
 //测试生成Highcharts图表
 function testChart(){
 	$('#testContent').children().remove();
+
+	/*静态调用
+	$.fe_drawChart('#testContent',{
+		'type':'line',
+		'title':'xxx曲线图',
+		'xValue':[1,2,3,4,5,6,7,8,9,10],
+		'series':[271.9,272.1,272.1,271.9,270.5,271.9,272.1,272.1,271.9,270.5]
+	});*/
+
+	$('#testContent').fe_drawChart({
+		'type':'area',
+		'title':'xxx曲线图',
+		'xValue':[1,2,3,4,5,6,7,8,9,10],
+		'series':[271.9,272.1,275.1,278.9,268.5,271.9,262.1,272.1,271.9,280.5]
+	});
 }
 //测试生成表格
 function testTable(){

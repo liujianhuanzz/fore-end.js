@@ -69,6 +69,17 @@
     	});
     }
 
+    $.fe_drawChart = function(selector,obj){//绘制图表的静态方法
+    	$(selector).fe_drawChart(obj);
+    }
+
+    $.fn.fe_drawChart = function(obj){//绘制图表的实例化方法
+    	$.each(this,function(index, el) {
+    		var _this = this;
+    		createObject().drawChart(_this,obj);
+    	});
+    }
+
 })(jQuery);
 
 /*
@@ -360,4 +371,50 @@ FEObject.prototype.createTable = function(container,obj){
 		contentFragment.appendChild(contentTr);
 	}
 	tableEle.appendChild(contentFragment);
+}
+
+/*绘制图表*/
+FEObject.prototype.drawChart = function(container,obj){
+
+	var chartType = obj['type'] === undefined ? 'spline' : obj['type'];
+	var chartTitle = obj['title'] === undefined ? '' : obj['title'];
+	var chartXValue = obj['xValue'] === undefined ? 'datatime' : obj['xValue'];
+	var chartSeries = obj['series'];
+
+	$(container).highcharts({//可根据不同的需求配置此处，不可能写全了满足所有需求的
+		loading:{
+			labelStyle:{
+				top:'1%',
+				fontWeight:'bold'
+			}
+		},
+		chart:{
+			type:chartType,
+			zoomType:'x'
+		},
+		title:{
+			text:chartTitle
+		},
+		xAxis:{
+			categories:chartXValue
+		},
+		plotOptions:{
+			series:{
+				allowPointSelect:true,
+				marker:{
+					radius:2
+				}
+			}
+		}
+	});
+
+	/*添加series绘制图表*/
+	var chart = $(container).highcharts();
+
+	if(chart.series.length > 0){
+		chart.series[0].remove();
+	}else{
+		chart.addSeries({'data':chartSeries});
+	}
+
 }
