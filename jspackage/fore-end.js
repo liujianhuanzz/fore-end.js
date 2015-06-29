@@ -80,6 +80,17 @@
     	});
     }
 
+    $.fe_lockScreen = function(selector,obj){//遮罩锁屏静态方法
+    	$(selector).fe_lockScreen(obj);
+    }
+
+    $.fn.fe_lockScreen = function(obj){//遮罩锁屏实例化方法
+    	$.each(this,function(index, el) {
+    		var _this = this;
+    		createObject().lockScreen(_this,obj);
+    	});
+    }
+
 })(jQuery);
 
 /*
@@ -417,4 +428,50 @@ FEObject.prototype.drawChart = function(container,obj){
 		chart.addSeries({'data':chartSeries});
 	}
 
+}
+
+/*遮罩锁屏*/
+FEObject.prototype.lockScreen = function(container,obj){
+
+	var noticeStr = obj['noticeWord'] === undefined ? '请输入提示信息' : obj['noticeWord'];
+	var isHandle = obj['isHandle'] === undefined ? false : obj['isHandle'];
+
+	var newCoverDiv =document.createElement('div');
+	newCoverDiv.id = 'noticeCoverLayerDiv';
+	$(container).append(newCoverDiv);
+
+	var newNoticeDiv = document.createElement('div');
+	newNoticeDiv.id = 'noticeDiv';
+	newNoticeDiv.className = 'windowBody';
+	newCoverDiv.appendChild(newNoticeDiv);
+
+	var newNoticeTitleDiv = document.createElement('div');
+	newNoticeTitleDiv.id = 'noticeTitleDiv';
+	newNoticeTitleDiv.className = 'windowTitle';
+	newNoticeDiv.appendChild(newNoticeTitleDiv);
+	newNoticeTitleDiv.innerHTML = '提示';
+
+	var newNoticeContentDiv = document.createElement('div');
+	newNoticeContentDiv.id = 'noticeContentDiv';
+	newNoticeDiv.appendChild(newNoticeContentDiv);
+	newNoticeContentDiv.innerHTML = noticeStr;
+
+	$.fe_draggable({
+		'element':'#noticeDiv',
+		'handler':'#noticeTitleDiv'
+	});
+
+	if(isHandle){
+		var newNoticeCloseImg = document.createElement('img');
+		newNoticeCloseImg.id = 'noticeCloseImg';
+		newNoticeCloseImg.className = 'windowClose';
+		newNoticeCloseImg.src = 'imagepackage/close-1.png';
+		newNoticeDiv.appendChild(newNoticeCloseImg);
+
+		$('#noticeCloseImg').on('click',function(){
+			$('#noticeCoverLayerDiv').fadeOut('250', function() {
+				$('#noticeCoverLayerDiv').remove();
+			});
+		});
+	}
 }
