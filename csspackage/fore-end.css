@@ -50,3 +50,32 @@
 .windowClose:hover,.windowFade:hover {
 	cursor: pointer;
 }
+/*遮罩锁屏浮动窗*/
+#noticeCoverLayerDiv{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 10;
+	background-color: rgba(0,0,0,0.25);
+	top: 0;
+	left: 0;
+}
+
+#noticeDiv{
+	width: 300px;
+	background-color: rgba(255,255,255,0.9);
+	position: relative;
+	left: calc(50% - 150px);
+	top: calc(50% - 40px);
+}
+
+#noticeContentDiv{
+	width: 300px;
+	padding: 0 10px;
+	font-size: 20px;
+	line-height: 40px;
+	color: #38c;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}

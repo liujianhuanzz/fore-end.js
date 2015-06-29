@@ -113,3 +113,19 @@ function testTable(){
 function testMenu(){
 	$('#testContent').children().remove();
 }
+
+//测试遮罩锁屏
+function testCover(){
+	$('#testContent').children().remove();
+
+	/*实例化调用
+	$('#testContent').fe_lockScreen({
+		'isHandle':true,
+		'noticeWord':'xxxxxxxxxx'
+	});*/
+
+	$.fe_lockScreen('#testContent',{
+		'isHandle':true,
+		'noticeWord':'遮罩锁屏测试用例'
+	})
+}
