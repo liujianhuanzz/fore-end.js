@@ -87,8 +87,12 @@
     $.fn.fe_lockScreen = function(obj){//遮罩锁屏实例化方法
     	$.each(this,function(index, el) {
     		var _this = this;
-    		createObject().lockScreen(_this,obj);
+    		createObject().popDiv(_this).lockScreen(obj);
     	});
+    }
+
+    $.fe_alert = function(str){//弹框警告方法
+    	createObject().popDiv('body').alert(str);
     }
 
 })(jQuery);
@@ -163,6 +167,7 @@ FEObject.prototype.drag = function(element,handler){
 
 /*登录页面创建*/
 FEObject.prototype.createLoginPage = function(parentEle,titleName){
+	var _this = this;
 
 	/*创建底层容器*/
 	var loginDiv = document.createElement('div');
@@ -250,7 +255,7 @@ FEObject.prototype.createLoginPage = function(parentEle,titleName){
 
 	/*绑定关闭按钮事件*/
 	$('.windowClose').on('click',function(){
-		$(this).parent().remove();
+		_this.remove($(this).parent());
 	});
 
 	/*绑定拖动事件*/
@@ -430,11 +435,9 @@ FEObject.prototype.drawChart = function(container,obj){
 
 }
 
-/*遮罩锁屏*/
-FEObject.prototype.lockScreen = function(container,obj){
-
-	var noticeStr = obj['noticeWord'] === undefined ? '请输入提示信息' : obj['noticeWord'];
-	var isHandle = obj['isHandle'] === undefined ? false : obj['isHandle'];
+/*弹框*/
+FEObject.prototype.popDiv = function(container){
+	var _this = this;
 
 	var newCoverDiv =document.createElement('div');
 	newCoverDiv.id = 'noticeCoverLayerDiv';
@@ -451,27 +454,63 @@ FEObject.prototype.lockScreen = function(container,obj){
 	newNoticeDiv.appendChild(newNoticeTitleDiv);
 	newNoticeTitleDiv.innerHTML = '提示';
 
-	var newNoticeContentDiv = document.createElement('div');
-	newNoticeContentDiv.id = 'noticeContentDiv';
-	newNoticeDiv.appendChild(newNoticeContentDiv);
-	newNoticeContentDiv.innerHTML = noticeStr;
-
 	$.fe_draggable({
 		'element':'#noticeDiv',
 		'handler':'#noticeTitleDiv'
 	});
+
+	return _this;
+
+}
+
+/*遮罩锁屏*/
+FEObject.prototype.lockScreen = function(obj){
+	var _this = this;
+
+	var noticeStr = obj['noticeWord'] === undefined ? '请输入提示信息' : obj['noticeWord'];
+	var isHandle = obj['isHandle'] === undefined ? false : obj['isHandle'];
+
+	var newNoticeContentDiv = document.createElement('div');
+	newNoticeContentDiv.id = 'noticeContentDiv';
+	$('#noticeDiv').append(newNoticeContentDiv);
+	newNoticeContentDiv.innerHTML = noticeStr;
 
 	if(isHandle){
 		var newNoticeCloseImg = document.createElement('img');
 		newNoticeCloseImg.id = 'noticeCloseImg';
 		newNoticeCloseImg.className = 'windowClose';
 		newNoticeCloseImg.src = 'imagepackage/close-1.png';
-		newNoticeDiv.appendChild(newNoticeCloseImg);
+		$('#noticeDiv').append(newNoticeCloseImg);
 
 		$('#noticeCloseImg').on('click',function(){
-			$('#noticeCoverLayerDiv').fadeOut('250', function() {
-				$('#noticeCoverLayerDiv').remove();
-			});
+			_this.remove('#noticeCoverLayerDiv');
 		});
 	}
+}
+
+//弹警告窗
+FEObject.prototype.alert = function(str){
+	var _this = this;
+
+	var newNoticeContentDiv = document.createElement('div');
+	newNoticeContentDiv.id = 'noticeContentDiv';
+	$('#noticeDiv').append(newNoticeContentDiv);
+	newNoticeContentDiv.innerHTML = str;
+
+	var buttonDiv = document.createElement('div');
+	buttonDiv.className = 'popButton';
+	buttonDiv.id = 'submitButton';
+	buttonDiv.innerHTML = '确认';
+	$('#noticeDiv').append(buttonDiv);
+
+	$(buttonDiv).on('click',function(){
+		_this.remove('#noticeCoverLayerDiv');
+	});
+}
+
+/*移除元素*/
+FEObject.prototype.remove = function(selector){
+	$(selector).fadeOut('250', function() {
+		$(this).remove();
+	});
 }

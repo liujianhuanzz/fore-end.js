@@ -57,6 +57,7 @@ user.js和user.css为模块中与用户相关的样式，可对其中属性和�
 		其中type为图表类型，title为图表名称，xValue为横轴值，series为纵轴的值，两者长度须一致，此处较复杂，尽量根据不同的需求结合highcharts
 		手册来进行自己写，这里只是当作一个实例给出
 	附：常用highcharts图表类型：折线图：line,曲线图：spline,点状图：scatter,柱状图：column,折线区域图：area,曲线区域图：areaspline;
+
 六、fore-end.js中添加fe_lockScreen遮罩锁屏方法，调用形式如下:
 	1.实例化调用：$(selector).fe_lockScreen(obj);
 	2.静态调用: $.fe_lockScreen(selector,obj);其中selector为id选择器或者类选择器或者元素，即'#xxx'或者'.xxx'或者element,
@@ -66,6 +67,9 @@ user.js和user.css为模块中与用户相关的样式，可对其中属性和�
 					}
 		其中isHandle为是否可操作，此处可操作表示锁屏是否可以手动关闭，还是等待程序关闭，可以手动则传入true，否则传入false，默认为false；
 			noticeWord为传入一句提示性话语;
+
+七、fore-end.js中添加fe_alert弹框警告方法替代自带的alert方法，调用形式：$.fe_alert('弹框警告');
+
 
 
 --------------csspackage--------------------------
@@ -86,8 +90,10 @@ test.css添加测试getStyle和测试图表按钮, 2015.6.25
 test.css添加测试表格按钮, 2015.6.27
 test.css添加测试菜单按钮, 2015.6.28
 test.css添加测试遮罩锁屏按钮, 2015.6.29
+test.css添加测试弹框警告按钮, 2015.6.30
 
 user.css添加用户定义登录样式，2015.6.18
+user.css添加用户定义弹框按钮样式，2015.6.30
 --------------imagepackage------------------------
 
 close-1.png 关闭图标(空心);
