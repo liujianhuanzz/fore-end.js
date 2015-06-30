@@ -281,7 +281,7 @@ FEObject.prototype.login = function(type,page,succ_callback,fail_callback){
 	$('input').on('keydown',function(e){
 		if(e.which == 13){//按下回车
 			if(userEle.value == '' || pwdEle.value == ''){
-				alert('用户名或密码为空');
+				$.fe_alert('用户名或密码为空');
 			}else{
 				var name = userEle.value;
 				var password = pwdEle.value;
@@ -304,7 +304,7 @@ FEObject.prototype.login = function(type,page,succ_callback,fail_callback){
 
 	$('#loginSubmit').on('click',function(){
 		if(userEle.value == '' || pwdEle.value == ''){
-			alert('用户名或密码为空');
+			$.fe_alert('用户名或密码为空');
 		}else{
 			var name = userEle.value;
 			var password = pwdEle.value;

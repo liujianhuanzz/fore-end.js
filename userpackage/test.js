@@ -61,7 +61,7 @@ function testLogin(){
 //测试getStyle函数
 function testGetStyle(){
 	//alert($('#testContent').fe_getStyle('height'));
-	alert($.fe_getStyle('#testContent','left'));
+	$.fe_alert($.fe_getStyle('#testContent','left'));
 }
 //测试生成Highcharts图表
 function testChart(){
@@ -106,7 +106,7 @@ function testTable(){
 			'4':['参数一','参数二','参数三','参数四','参数五'],
 			'5':['参数一','参数二','参数三','参数四','参数五']
 		},
-		'callback':function(){alert('填写执行函数')}
+		'callback':function(){$.fe_alert('填写执行函数')}
 	});
 }
 /*测试生成菜单*/
