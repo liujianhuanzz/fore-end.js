@@ -129,3 +129,14 @@ function testCover(){
 		'noticeWord':'遮罩锁屏测试用例'
 	})
 }
+
+//测试弹框警告
+function testAlert(){
+	$('#testContent').children().remove();
+	$.fe_alert('测试弹框警告');
+}
+
+//测试弹框确认
+function testConfirm(){
+	$('#testContent').children().remove();
+}

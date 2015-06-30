@@ -157,3 +157,18 @@
 .standTable tr:hover{
 	background-color: #def;
 }
+
+/*弹框确认按钮*/
+.popButton {
+	font-size: 55%;
+	width: 80px;
+	text-align: center;
+	color:#38c;
+	border: 2px solid #bdf;
+	border-radius: 10px;
+	cursor: pointer;
+}
+#submitButton {
+	margin-left: 110px;
+	margin-top: 20px;
+}
