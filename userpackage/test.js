@@ -1,3 +1,7 @@
+window.onload = function(){
+	$('#testContent').fe_draggable({'handler':'#testContent'});
+}
+
 //测试拖拽函数
 function testDraggable(){
 
@@ -142,4 +146,19 @@ function testConfirm(){
 	$.fe_confirm('测试弹框确认',function(){
 		$.fe_alert('填写确认输入时的实行函数');
 	});
+}
+//瀑布流
+function testWaterful(){
+	$('#testContent').children().remove();
+
+	var images = {'data':
+					[
+					{'src':'imagepackage/waterful/1.jpg'},{'src':'imagepackage/waterful/2.jpg'},{'src':'imagepackage/waterful/3.jpg'},{'src':'imagepackage/waterful/4.jpg'},{'src':'imagepackage/waterful/5.jpg'},
+				    {'src':'imagepackage/waterful/6.jpg'},{'src':'imagepackage/waterful/7.jpg'},{'src':'imagepackage/waterful/8.jpg'},{'src':'imagepackage/waterful/9.jpg'},{'src':'imagepackage/waterful/10.jpg'},
+				    {'src':'imagepackage/waterful/11.jpg'},{'src':'imagepackage/waterful/12.jpg'},{'src':'imagepackage/waterful/13.jpg'},{'src':'imagepackage/waterful/14.jpg'},{'src':'imagepackage/waterful/15.jpg'},
+				    {'src':'imagepackage/waterful/16.jpg'},{'src':'imagepackage/waterful/17.jpg'},{'src':'imagepackage/waterful/18.jpg'},{'src':'imagepackage/waterful/19.jpg'},{'src':'imagepackage/waterful/20.jpg'}
+					]
+				};
+
+	init(images,'main');
 }
