@@ -139,4 +139,7 @@ function testAlert(){
 //测试弹框确认
 function testConfirm(){
 	$('#testContent').children().remove();
+	$.fe_confirm('测试弹框确认',function(){
+		$.fe_alert('填写确认输入时的实行函数');
+	});
 }
