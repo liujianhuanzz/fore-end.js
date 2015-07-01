@@ -95,6 +95,10 @@
     	createObject().popDiv('body').alert(str);
     }
 
+    $.fe_confirm = function(str,callback){//弹框确认方法
+    	createObject().popDiv('body').confirm(str,callback);
+    }
+
 })(jQuery);
 
 /*
@@ -508,9 +512,280 @@ FEObject.prototype.alert = function(str){
 	});
 }
 
+//弹框确认
+FEObject.prototype.confirm = function(str,trueCallback){
+	var _this = this;
+
+	var newNoticeContentDiv = document.createElement('div');
+	newNoticeContentDiv.id = 'noticeContentDiv';
+	$('#noticeDiv').append(newNoticeContentDiv);
+	newNoticeContentDiv.innerHTML = str;
+
+	var buttonDiv1 = document.createElement('div');
+	buttonDiv1.className = 'popButton';
+	buttonDiv1.id = 'submitButton';
+	buttonDiv1.innerHTML = '确认';
+	$('#noticeDiv').append(buttonDiv1);
+
+	var buttonDiv2 = document.createElement('div');
+	buttonDiv2.className = 'popButton';
+	buttonDiv2.id = 'cancelButton';
+	buttonDiv2.innerHTML = '取消';
+	$('#noticeDiv').append(buttonDiv2);
+
+	$(buttonDiv1).on('click',function(){
+		$('#noticeCoverLayerDiv').remove();
+		trueCallback();
+	});
+
+	$(buttonDiv2).on('click',function(){
+		_this.remove('#noticeCoverLayerDiv');
+	});
+}
+
 /*移除元素*/
 FEObject.prototype.remove = function(selector){
 	$(selector).fadeOut('250', function() {
 		$(this).remove();
 	});
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
