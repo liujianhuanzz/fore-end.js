@@ -1,4 +1,8 @@
 @charset 'utf-8';
+ul,li{
+	margin: 0;
+	padding: 0;
+}
 
 body {
 	font-family: 'FuturaFont','微软雅黑';
@@ -34,6 +38,8 @@ input[type='button']:hover{
 	left:calc(50% - 500px);
 }
 
+
+/*瀑布流相关样式*/
 #main{
 	width: 1000px;
 	height: 100%;
@@ -56,4 +62,72 @@ input[type='button']:hover{
 .box .pic img{
 	display: block;
 	width: 158px;
+}
+
+/*手风琴相关样式*/
+ul{
+	list-style: none;
+}
+
+.wrapper{
+	width: 938px;
+	height: 128px;
+	border: 1px solid #d3d3d3;
+}
+
+.wrapper li{
+	width: 156px;
+	height: 128px;
+	float: left;
+	overflow: hidden;
+}
+
+.wrapper li a{
+	display: block;
+	height: 128px;
+	width: 156px;
+	position: relative;
+	overflow: hidden;
+	text-decoration: none;
+}
+.wrapper li a img{
+	position: absolute;
+	bottom: 0px;
+	right: -15px;
+	height: 72px;
+	width: 117px;
+}
+.wrapper .line{
+	position: absolute;
+	right: 0px;
+	width: 0px;
+	height: 128px;
+	border: 1px dashed #ccc;
+}
+.wrapper .mask{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 128px;
+	width: 156px;
+	opacity: 0;
+	background: #000;
+}
+.wrapper:hover .mask{
+	opacity: 0.15;
+}
+.wrapper ul *{
+	transition:all linear 0.1s;
+}
+.wrapper li.big, li.big a{
+	width: 314px;
+}
+.wrapper li.big img{
+	width: 195px;
+	height: 120px;
+	right: 0;
+	bottom: 0;
+}
+.wrapper li.big a:hover .mask{
+	opacity: 0;
 }

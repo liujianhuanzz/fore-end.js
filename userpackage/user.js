@@ -1,7 +1,7 @@
 /*常见效果实例*/
 
 /*瀑布流相关函数*/
-function init(images,parent){
+function initWaterful(images,parent){
 
 	var containerDiv = document.createElement('div');
 	containerDiv.id = 'main';
@@ -65,3 +65,70 @@ function getIndex(arr){
 	}
 }
 //end of 瀑布流
+
+/*手风琴相关函数*/
+function initSFQ(){
+
+	var divEle = document.createElement('div');
+	divEle.id = 'subject';
+	divEle.className = 'wrapper';
+	$('#testContent').append(divEle);
+
+	var ulEle = document.createElement('ul');
+	divEle.appendChild(ulEle);
+
+	var fragment = document.createDocumentFragment();
+	for(var i=1; i<6; i++){
+
+		var liEle = document.createElement('li');
+		var aEle = document.createElement('a');
+		liEle.appendChild(aEle);
+
+		var imgEle = document.createElement('img');
+		imgEle.src = 'imagepackage/waterful/'+i+'.jpg';
+		var iEle1 = document.createElement('i');
+		iEle1.className = 'line';
+		var iEle2 = document.createElement('i');
+		iEle2.className = 'mask';
+		aEle.appendChild(imgEle);
+		aEle.appendChild(iEle1);
+		aEle.appendChild(iEle2);
+
+		fragment.appendChild(liEle);
+	}
+
+	ulEle.appendChild(fragment);
+	liEle.className = 'big';
+
+	initList();
+}
+
+function initList(){
+	var outer = document.getElementById('subject');
+	var list = outer.getElementsByTagName('li');
+	for(var i=0;i<list.length;i++){
+		bind(list[i], 'mouseover', mouseoverHandler);
+	}
+}
+
+function bind(el,eventType,callback){
+	el.onmouseover = callback;
+}
+
+function mouseoverHandler(e){
+	var target = e.target || e.srcElement;
+	var outer = document.getElementById('subject');
+	var list = outer.getElementsByTagName('li');
+
+	for(var i=0;i<list.length;i++){
+		list[i].className = '';
+	}
+
+	while(target.tagName != 'LI' && target.tagName != 'BODY'){
+		target = target.parentNode;
+	}
+
+	target.className = 'big';
+}
+
+//end of 手风琴
