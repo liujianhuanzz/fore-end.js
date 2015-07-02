@@ -160,5 +160,10 @@ function testWaterful(){
 					]
 				};
 
-	init(images,'main');
+	initWaterful(images,'main');
+}
+//手风琴
+function testSFQ(){
+	$('#testContent').children().remove();
+	initSFQ();
 }
