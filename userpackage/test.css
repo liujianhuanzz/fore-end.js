@@ -36,6 +36,7 @@ input[type='button']:hover{
 	position: absolute;
 	bottom: 5px;
 	left:calc(50% - 500px);
+	overflow: auto;
 }
 
 
