@@ -176,3 +176,52 @@
 	margin-left: 110px;
 	margin-top: 20px;
 }
+
+/*生成菜单样式*/
+#menuDivContent .menuSystemDiv{
+	min-height: 40px;
+	width: 295px;
+}
+#menuDivContent .menuSystemTitle {
+	height: 39px;
+	width: 280px;
+	padding-left: 0px;
+	line-height: 39px;
+	background-color: #61b0e9;
+	color: #247;
+	cursor: pointer;
+	font-size: 75%;
+	position: relative;
+	border-bottom: 1px solid #b5bee6;
+}
+#menuDivContent .menuSystemTitle:hover{
+	color: #240;
+}
+#menuDivContent .menuSystemSpan {
+	position: absolute;
+	left: 10px;
+}
+#menuDivContent .menuSubSystemDiv{
+	min-height: 35px;
+	width: 285px;
+}
+#menuDivContent .menuSubSystemTitle {
+	height: 34px;
+	width: 260px;
+	padding-left: 20px;
+	line-height: 34px;
+	border-bottom: 1px solid #d5e6de;
+	background-color: #6bc18b;
+	color: #474;
+	cursor: pointer;
+	font-size: 65%;
+}
+#menuDivContent .menuParaDiv {
+	height: 30px;
+	width: 250px;
+	padding-left: 30px;
+	line-height: 30px;
+	background-color: #f0f0f0;
+	color: #255;
+	font-size: 55%;
+}

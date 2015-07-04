@@ -99,6 +99,17 @@
     	createObject().popDiv('body').confirm(str,callback);
     }
 
+    $.fe_addMenu = function(selector,obj){//生成菜单静态方法
+    	$(selector).fe_addMenu(obj);
+    }
+
+    $.fn.fe_addMenu = function(obj){//生成菜单的实例化方法
+    	$.each(this,function(index, el) {
+    		var _this = this;
+    		createObject().addMenu(_this,obj,'first');
+    	});
+    }
+
 })(jQuery);
 
 /*
@@ -537,9 +548,78 @@ FEObject.prototype = {
 	},
 	/*移除元素*/
 	remove:function(selector){
-		$(selector).fadeOut('250', function() {
+		$(selector).fadeOut('100', function() {
 			$(this).remove();
 		});
+	},
+	/*生成菜单*/
+	addMenu:function(selector,obj,which){
+		var _this = this;
+
+		if(which == 'first'){
+			//生成一个菜单容器
+			var menuContainer = document.createElement('div');
+			menuContainer.id = 'menuDivContent';
+			$(selector).append(menuContainer);
+
+			for(var key in obj){
+				//生成标题容器
+				var menuItemContainer = document.createElement('div');
+				menuItemContainer.className = 'menuSystemDiv';
+				$('#menuDivContent').append(menuItemContainer);
+
+				var titleDiv = document.createElement('div');
+				titleDiv.className = 'menuSystemTitle';
+				menuItemContainer.appendChild(titleDiv);
+				//生成标题
+				var spanDiv = document.createElement('span');
+				spanDiv.className = 'menuSystemSpan';
+				spanDiv.innerHTML = key;
+				titleDiv.appendChild(spanDiv);
+			}
+
+			$('.menuSystemTitle').on('click',function(){
+				var childLength = $(this).siblings().length;
+				if(childLength == 0){
+					var currMenuItem = this.parentNode.firstChild.firstChild.innerHTML;
+					_this.addMenu(this.parentNode,obj[currMenuItem],'second');
+				}else{
+					_this.remove($(this).siblings().not('.menuSystemTitle'));
+				}
+			});
+		}else if(which == 'second'){
+			for(var key in obj){
+				//生成标题容器
+				var menuItemContainer = document.createElement('div');
+				menuItemContainer.className = 'menuSubSystemDiv';
+				$(selector).append(menuItemContainer);
+
+				var titleDiv = document.createElement('div');
+				titleDiv.className = 'menuSubSystemTitle';
+				titleDiv.innerHTML = key;
+				menuItemContainer.appendChild(titleDiv);
+
+			}
+
+			$('.menuSubSystemTitle').on('click',function(){
+				var childLength = $(this).siblings().length;
+				if(childLength == 0){
+					var currMenuItem = this.parentNode.firstChild.innerHTML;
+					_this.addMenu(this.parentNode,obj[currMenuItem]);
+				}else{
+					_this.remove($(this).siblings().not('.menuSubSystemTitle'));
+				}
+			});
+		}else{
+			for(var key in obj){
+				//生成标题容器
+				var menuItemContainer = document.createElement('div');
+				menuItemContainer.className = 'menuParaDiv';
+				menuItemContainer.innerHTML = key;
+				$(selector).append(menuItemContainer);
+			}
+		}
+		
 	}
 };
 
