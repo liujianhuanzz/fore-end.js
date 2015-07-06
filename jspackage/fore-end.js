@@ -110,6 +110,10 @@
     	});
     }
 
+    $.fe_unique = function(arr){//数组去重
+    	return createObject().unique(arr);
+    }
+
 })(jQuery);
 
 /*
@@ -620,6 +624,25 @@ FEObject.prototype = {
 			}
 		}
 		
+	},
+	//数组去重
+	unique:function(arr){
+		//集中声明
+		var oldArr = arr,
+			newArr = [oldArr[0]],
+			len = arr.length,
+			i = 1;
+
+		if(!len) {
+			return false;
+		}
+		
+		//数组去重
+		for(;i<len; i++){
+			newArr.indexOf(oldArr[i]) < 0 ? newArr.push(oldArr[i]) : '';
+		}
+
+		return newArr;
 	}
 };
 

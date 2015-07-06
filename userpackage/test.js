@@ -1,5 +1,5 @@
 window.onload = function(){
-	$('#testContent').fe_draggable({'handler':'#testContent'});
+	//$('#testContent').fe_draggable({'handler':'#testContent'});
 }
 
 //测试拖拽函数
@@ -198,4 +198,29 @@ function testWaterful(){
 function testSFQ(){
 	$('#testContent').children().remove();
 	initSFQ();
+}
+//数组去重
+function testUnique(){
+	$('#testContent').children().remove();
+	var inputEle = document.createElement('input');
+	inputEle.type = 'text';
+	inputEle.id = 'inputId';
+	$('#testContent').append(inputEle);
+
+	var buttonEle = document.createElement('input');
+	buttonEle.type = 'button';
+	buttonEle.value = '数组去重';
+	buttonEle.id = 'buttonId';
+	$('#testContent').append(buttonEle);
+
+	buttonEle.onclick = function(){
+		var ele = document.getElementById('inputId'),
+			val = ele.value,
+			valArr = eval(val);
+
+		$.fe_alert($.fe_unique(valArr));
+
+		ele.value = '';
+
+	}
 }
