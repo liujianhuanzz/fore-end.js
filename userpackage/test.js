@@ -4,6 +4,7 @@ window.onload = function(){
 
 //测试拖拽函数
 function testDraggable(){
+	popDiv();
 
 	$('#testContent').children().remove();
 	
@@ -47,6 +48,7 @@ function testDraggable(){
 }
 //测试登录函数
 function testLogin(){
+	popDiv();
 
 	$('#testContent').children().remove();
 
@@ -64,11 +66,13 @@ function testLogin(){
 }
 //测试getStyle函数
 function testGetStyle(){
+	popDiv();
 	//alert($('#testContent').fe_getStyle('height'));
 	$.fe_alert($.fe_getStyle('#testContent','left'));
 }
 //测试生成Highcharts图表
 function testChart(){
+	popDiv();
 	$('#testContent').children().remove();
 
 	/*静态调用
@@ -88,6 +92,7 @@ function testChart(){
 }
 //测试生成表格
 function testTable(){
+	popDiv();
 	$('#testContent').children().remove();
 	/*静态调用
 	$.fe_addTable('#testContent',{
@@ -115,6 +120,7 @@ function testTable(){
 }
 /*测试生成菜单*/
 function testMenu(){
+	popDiv();
 	$('#testContent').children().remove();
 
 	$('#testContent').fe_addMenu({
@@ -152,6 +158,7 @@ function testMenu(){
 
 //测试遮罩锁屏
 function testCover(){
+	popDiv();
 	$('#testContent').children().remove();
 
 	/*实例化调用
@@ -181,6 +188,7 @@ function testConfirm(){
 }
 //瀑布流
 function testWaterful(){
+	popDiv();
 	$('#testContent').children().remove();
 
 	var images = {'data':
@@ -196,11 +204,13 @@ function testWaterful(){
 }
 //手风琴
 function testSFQ(){
+	popDiv();
 	$('#testContent').children().remove();
 	initSFQ();
 }
 //数组去重
 function testUnique(){
+	popDiv();
 	$('#testContent').children().remove();
 	var inputEle = document.createElement('input');
 	inputEle.type = 'text';
@@ -225,6 +235,7 @@ function testUnique(){
 }
 //字符串去除两端空格
 function testTrim(){
+	popDiv();
 	$('#testContent').children().remove();
 	var inputEle = document.createElement('input');
 	inputEle.type = 'text';
@@ -245,4 +256,9 @@ function testTrim(){
 		$.fe_alert($.fe_trim(valArr));
 
 	}
+}
+
+//跟踪简易demo
+function testDemo(){
+	window.open('demo.html');
 }

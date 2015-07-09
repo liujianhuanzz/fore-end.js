@@ -1,7 +1,7 @@
 # fore-end.js
 ******************文件介绍******************************************
 
-包含jspackage开发包文件夹：用于开发代码编写,最终fore-end.js形成主要文件;
+包含modulepackage开发包文件夹：用于开发代码编写,最终fore-end.js形成主要文件;
 	csspackage常用样式文件夹；
 	imagepackage常用图片文件夹，比如关闭按钮；
 	userpackage用户代码包文件夹：用于使用测试和一些实例;
@@ -14,7 +14,7 @@ user.css为模块中与用户相关的样式，可对其中属性和值适当进
 
 ******************内容介绍******************************************
 
---------------jspackage---------------------------
+--------------modulepackage---------------------------
 
 一、fore-end.js中添加fe_draggable方法，调用形式：
 	1.实例化调用：$(selector).fe_draggable(object),其中object为可选参数，如果不填则默认$(selector)为handler;如果填入的话，格式为{'handler':handlername},handlername可以传入'.xxx'或者'#xxx'；

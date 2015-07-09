@@ -29,13 +29,19 @@ input[type='button']:hover{
 	color: #7ee5d6;
 }
 
+#testContainer {
+	position: absolute;
+	width: 1000px;
+	top: 100px;
+	left:calc(50% - 500px);
+	background-color: #fff;
+}
+
 #testContent{
+	position: relative;
 	width: 1000px;
 	height: 700px;
 	border: 1px solid #0966a8;
-	position: absolute;
-	bottom: 5px;
-	left:calc(50% - 500px);
 	overflow: auto;
 }
 
