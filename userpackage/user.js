@@ -132,3 +132,39 @@ function mouseoverHandler(e){
 }
 
 //end of 手风琴
+
+//弹一个空白容器,测试专用
+function popDiv(){
+	var ele = document.getElementById('testContainer');
+	if(ele){
+		$(ele).remove();
+	}
+	
+	var containerDiv = document.createElement('div');
+	containerDiv.id = 'testContainer';
+	containerDiv.className = 'windowBody';
+	document.body.appendChild(containerDiv);
+
+	var titleDiv = document.createElement('div');
+	titleDiv.className = 'windowTitle';
+	titleDiv.innerHTML = '测试代码容器';
+	containerDiv.appendChild(titleDiv);
+
+	var contentDiv = document.createElement('div');
+	contentDiv.id = 'testContent';
+	containerDiv.appendChild(contentDiv);
+
+	var imgEle = document.createElement('img');
+	imgEle.src = 'imagepackage/close-1.png';
+	imgEle.className = 'windowClose';
+	titleDiv.appendChild(imgEle);
+
+	$.fe_draggable({
+		'element':'#testContainer',
+		'handler':'.windowTitle'
+	});
+
+	$(imgEle).on('click',function(){
+		$('#testContainer').remove();
+	});
+}
