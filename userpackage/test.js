@@ -220,7 +220,29 @@ function testUnique(){
 
 		$.fe_alert($.fe_unique(valArr));
 
-		ele.value = '';
+
+	}
+}
+//字符串去除两端空格
+function testTrim(){
+	$('#testContent').children().remove();
+	var inputEle = document.createElement('input');
+	inputEle.type = 'text';
+	inputEle.id = 'inputId';
+	$('#testContent').append(inputEle);
+
+	var buttonEle = document.createElement('input');
+	buttonEle.type = 'button';
+	buttonEle.value = '字符串去除两端空格';
+	buttonEle.id = 'buttonId';
+	$('#testContent').append(buttonEle);
+
+	buttonEle.onclick = function(){
+		var ele = document.getElementById('inputId'),
+			val = ele.value,
+			valArr = eval(val);
+
+		$.fe_alert($.fe_trim(valArr));
 
 	}
 }

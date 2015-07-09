@@ -114,6 +114,10 @@
     	return createObject().unique(arr);
     }
 
+    $.fe_trim = function(str){//去除字符串两端空格
+    	return createObject().trim(str);
+    }
+
 })(jQuery);
 
 /*
@@ -636,13 +640,17 @@ FEObject.prototype = {
 		if(!len) {
 			return false;
 		}
-		
+
 		//数组去重
 		for(;i<len; i++){
 			newArr.indexOf(oldArr[i]) < 0 ? newArr.push(oldArr[i]) : '';
 		}
 
 		return newArr;
+	},
+	//字符串去除两端空格
+	trim:function(str){
+		return str.replace(/^\s+/g,'').replace(/\s+$/g,'');
 	}
 };
 

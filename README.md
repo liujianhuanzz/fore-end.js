@@ -109,7 +109,8 @@ user.css为模块中与用户相关的样式，可对其中属性和值适当进
 					}
 		最多支持三级菜单
 
-十、fore-end.js中添加fe_unique生成菜单方法,调用方法：$.fe_unique(array);
+十、fore-end.js中添加fe_unique数组去重,调用方法：$.fe_unique(array);
+十、fore-end.js中添加fe_trim字符串去除两边空格,调用方法：$.fe_trim(array);
 
 
 --------------csspackage--------------------------
