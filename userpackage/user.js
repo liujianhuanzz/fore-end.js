@@ -139,7 +139,7 @@ function popDiv(){
 	if(ele){
 		$(ele).remove();
 	}
-	
+
 	var containerDiv = document.createElement('div');
 	containerDiv.id = 'testContainer';
 	containerDiv.className = 'windowBody';
@@ -167,4 +167,19 @@ function popDiv(){
 	$(imgEle).on('click',function(){
 		$('#testContainer').remove();
 	});
+}
+//弹一个注释容器
+function popComment(str,leftpx,toppx){
+	var eleDiv = document.createElement('div');
+	eleDiv.className = 'popComment';
+	eleDiv.style.fontSize = '12px';
+	eleDiv.style.width = '150px';
+	eleDiv.style.height = '200px';
+	eleDiv.style.position = 'absolute';
+	eleDiv.style.backgroundColor = '#fff';
+	eleDiv.style.border = '1px solid #000';
+	eleDiv.style.left = leftpx + 'px';
+	eleDiv.style.top = toppx + 'px';
+	eleDiv.innerHTML = str;
+	document.body.appendChild(eleDiv);
 }
