@@ -173,13 +173,14 @@ function popComment(str,leftpx,toppx){
 	var eleDiv = document.createElement('div');
 	eleDiv.className = 'popComment';
 	eleDiv.style.fontSize = '12px';
-	eleDiv.style.width = '150px';
-	eleDiv.style.height = '200px';
+	eleDiv.style.width = '180px';
+	//eleDiv.style.height = '250px';
 	eleDiv.style.position = 'absolute';
 	eleDiv.style.backgroundColor = '#fff';
 	eleDiv.style.border = '1px solid #000';
 	eleDiv.style.left = leftpx + 'px';
 	eleDiv.style.top = toppx + 'px';
+	eleDiv.style.padding = '3px';
 	eleDiv.innerHTML = str;
 	document.body.appendChild(eleDiv);
 }
