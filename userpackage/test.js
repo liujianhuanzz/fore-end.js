@@ -1,6 +1,10 @@
 window.onload = function(){
 	$("input[value='测试拖拽']").on('mouseenter',MouseEnter.testDraggable);
 	$("input[value='测试拖拽']").on('mouseleave',MouseLeave.remove);
+	$("input[value='测试登录']").on('mouseenter',MouseEnter.testLogin);
+	$("input[value='测试登录']").on('mouseleave',MouseLeave.remove);
+	$("input[value='测试getStyle']").on('mouseenter',MouseEnter.testGetStyle);
+	$("input[value='测试getStyle']").on('mouseleave',MouseLeave.remove);
 }
 
 var Click = {
@@ -272,10 +276,26 @@ var MouseEnter = {
 		var leftpx = this.offsetLeft,
 			toppx = this.offsetTop;
 
-		var str = '拖拽代码实现:要点就是鼠标事件绑定，包括onmousedown,onmousemove和onmouseup三个事件，而且还要了解拖拽边界控制计算。'+
-				  '在实现过程中应该充分了解鼠标事件中的各个属性以及取消默认事件和阻止事件冒泡的兼容性。';
+		var str = description['testDraggable'];
+		popComment(str,leftpx,toppx+40);
+	},
+	//登录描述
+	testLogin:function(){
+		var leftpx = this.offsetLeft,
+			toppx = this.offsetTop;
+
+		var str = description['testLogin'];
+		popComment(str,leftpx,toppx+40);
+	},
+	//getStyle描述
+	testGetStyle:function(){
+		var leftpx = this.offsetLeft,
+			toppx = this.offsetTop;
+
+		var str = description['testGetStyle'];
 		popComment(str,leftpx,toppx+40);
 	}
+
 };
 
 var MouseLeave = {
@@ -285,3 +305,12 @@ var MouseLeave = {
 		});
 	}
 };
+
+var description = {
+	'testDraggable':'拖拽代码实现:要点就是鼠标事件绑定，包括onmousedown, onmousemove和onmouseup三个事件，而且还要了解拖拽边界控制计算。'+
+				    '在实现过程中应该充分了解鼠标事件中的各个属性以及取消默认事件和阻止事件冒泡的兼容性。<br>' + '调用形式：$.fe_draggable('+
+				  	'{"element": selector,"handler":handlername})或者$(selector).fe_draggable ({"handler":handlername});其中selector和handlername都可以按id获取或者按class获取',
+	'testLogin':'登录的实现页面是属于其次内容的，最主要的是通过登录来系统学习Ajax的实现，并且了解post方式和get方式的区别，同时熟悉'+
+				  'Ajax对不同浏览器的兼容性问题，体会前后端合作的方式。在此基础上，再深入学习Ajax跨域的解决方案。',
+	'testGetStyle':'该方法的作用是返回属性值，在实现过程中需要考虑到W3C和IE的兼容性，在W3C中使用getComputedStyle来获取，在IE中使用currentStyle'
+}
