@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="csspackage/carousel.css"/>
 <link rel="stylesheet" type="text/css" href="csspackage/fore-end.css">
 <link type="text/css" rel="stylesheet" href="userpackage/user.css"/>
 <link type="text/css" rel="stylesheet" href="userpackage/test.css"/>
@@ -17,6 +18,7 @@
   <input type="button" value="遮罩锁屏" onclick="Click.testCover();">
   <input type="button" value="弹框警告" onclick="Click.testAlert();">
   <input type="button" value="弹框确认" onclick="Click.testConfirm();">
+  <input type="button" value="旋转木马" onclick="Click.testCarousel();">
   <div class="title">测试方法代码</div>
   <input type="button" value="测试getStyle" onclick="Click.testGetStyle();">
   <input type="button" value="数组去重" onclick="Click.testUnique();">
@@ -26,6 +28,26 @@
   <input type="button" value="手风琴" onclick="Click.testSFQ();">
   <input type="button" value="跟踪demo" onclick="Click.testDemo();">
   <!-- <div id="testContent"></div> -->
+  <div class="J_Poster poster-main" data-setting='{
+                                                  "width":800,
+                                                  "height":270,
+                                                  "posterWidth":640,
+                                                  "posterHeight":270,
+                                                  "scale":0.8,
+                                                  "autoPlay":true,
+                                                  "delay":5000,
+                                                  "speed":300,
+                                                  "vericalAlign":"top"
+                                                }' style="display:none;">
+    <div class="poster-btn poster-prev-btn"></div>
+      <ul class="poster-list">
+        <li class="poster-item"><a href="#"><img src="imagepackage/waterful/21.jpg" width="100%" height="100%"></a></li>
+          <li class="poster-item"><a href="#"><img src="imagepackage/waterful/22.jpg" width="100%" height="100%"></a></li>
+          <li class="poster-item"><a href="#"><img src="imagepackage/waterful/23.jpg" width="100%" height="100%"></a></li>
+          <li class="poster-item"><a href="#"><img src="imagepackage/waterful/24.jpg" width="100%" height="100%"></a></li>
+      </ul>
+      <div class="poster-btn poster-next-btn"></div>
+  </div>
 </body>
 <script type="text/javascript" src="modulepackage/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="modulepackage/highcharts.js"></script>
