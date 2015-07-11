@@ -311,6 +311,6 @@ var description = {
 				    '在实现过程中应该充分了解鼠标事件中的各个属性以及取消默认事件和阻止事件冒泡的兼容性。<br>' + '调用形式：$.fe_draggable('+
 				  	'{"element": selector,"handler":handlername})或者$(selector).fe_draggable ({"handler":handlername});其中selector和handlername都可以按id获取或者按class获取',
 	'testLogin':'登录的实现页面是属于其次内容的，最主要的是通过登录来系统学习Ajax的实现，并且了解post方式和get方式的区别，同时熟悉'+
-				  'Ajax对不同浏览器的兼容性问题，体会前后端合作的方式。在此基础上，再深入学习Ajax跨域的解决方案。',
-	'testGetStyle':'该方法的作用是返回属性值，在实现过程中需要考虑到W3C和IE的兼容性，在W3C中使用getComputedStyle来获取，在IE中使用currentStyle'
+				  'Ajax对不同浏览器的兼容性问题，体会前后端合作的方式。在此基础上，再深入学习Ajax跨域的解决方案。<br>' + '调用形式：$.fe_login(object),其中selector为父容器，object格式为：{"parent":selector,"title":title, "type":type,"page":page, "success":callback, "failure":callback},selector为父容器,title为系统名称;type为提交方式，get和post;page为提交目标页面;success和failure分别登录成功和失败后需要执行的回调函数;',
+	'testGetStyle':'该方法的作用是返回属性值，在实现过程中需要考虑到W3C和IE的兼容性，在W3C中使用getComputedStyle来获取，在IE中使用currentStyle。 $.fe_getStyle(selector,attr);其中selector为id选择器或者类选择器或者元素，即"#xxx"或者".xxx"或者element,attr为属性名;'
 }
