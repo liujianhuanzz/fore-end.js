@@ -7,6 +7,8 @@ window.onload = function(){
 	$("input[value='测试getStyle']").on('mouseleave',MouseLeave.remove);
 	$("input[value='旋转木马']").on('mouseenter',MouseEnter.testCarousel);
 	$("input[value='旋转木马']").on('mouseleave',MouseLeave.remove);
+	$("input[value='生成图表']").on('mouseenter',MouseEnter.testChart);
+	$("input[value='生成图表']").on('mouseleave',MouseLeave.remove);
 }
 
 var Click = {
@@ -314,6 +316,14 @@ var MouseEnter = {
 
 		var str = description['testCarousel'];
 		popComment(str,leftpx,toppx+40);
+	},
+	//图表描述
+	testChart:function(){
+		var leftpx = this.offsetLeft,
+			toppx = this.offsetTop;
+
+		var str = description['testChart'];
+		popComment(str,leftpx,toppx+40);
 	}
 
 };
@@ -333,5 +343,6 @@ var description = {
 	'testLogin':'登录的实现页面是属于其次内容的，最主要的是通过登录来系统学习Ajax的实现，并且了解post方式和get方式的区别，同时熟悉'+
 				  'Ajax对不同浏览器的兼容性问题，体会前后端合作的方式。在此基础上，再深入学习Ajax跨域的解决方案。<br>' + '调用形式：$.fe_login(object),其中selector为父容器，object格式为：{"parent":selector,"title":title, "type":type,"page":page, "success":callback, "failure":callback},selector为父容器,title为系统名称;type为提交方式，get和post;page为提交目标页面;success和failure分别登录成功和失败后需要执行的回调函数;',
 	'testGetStyle':'该方法的作用是返回属性值，在实现过程中需要考虑到W3C和IE的兼容性，在W3C中使用getComputedStyle来获取，在IE中使用currentStyle。 $.fe_getStyle(selector,attr);其中selector为id选择器或者类选择器或者元素，即"#xxx"或者".xxx"或者element,attr为属性名;',
-	'testCarousel':'该功能是一个旋转木马的插件。HTML格式可以参考示例代码，要点就在data-setting的设置以及加上相应的类, 调用形式：$.carousel(); '
+	'testCarousel':'该功能是一个旋转木马的插件。HTML格式可以参考示例代码，要点就在data-setting的设置以及加上相应的类, 调用形式：$.carousel(); ',
+	'testChart':'该方法的作用是在一个div容器中使用Highcharts图表库生成图表，要点就在于配置图表信息上，此方法比较复杂，需认真研读readme。'
 }
