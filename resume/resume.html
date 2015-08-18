@@ -89,12 +89,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				 <span><h4>重庆大学自动化学院就读硕士研究生</h4></span>
 				 <p>
 				 	1.　2014-2015年度重庆大学A等奖学金<br>
-				 	2.　<a href="#chengji">2013-2014年度成绩单</a><br>
-				 	3.　<a href="#youxiu">2014-2015年度重庆大学优秀研究生</a><br>
-				 	4.　<a Href="#shumo">第十一届华为杯全国研究生数学建模大赛国家三等奖</a>
+				 	2.　2013-2014年度成绩单<br>
+				 	3.　2014-2015年度重庆大学优秀研究生<br>
+				 	4.　第十一届华为杯全国研究生数学建模大赛国家三等奖
 				 </p>
-				 <div id="chengji"><embed src="images/成绩单.pdf"></embed></div>
-				 <div id="youxiu"></div>
+				 <div id="chengji" class="sml_pic"><embed src="images/成绩单.pdf"></embed></div>
+				 <div id="youxiu" class="sml_pic"><img src="images/优秀研究生.jpg" alt="优秀研究生图片"/></div>
 			  </div> 
 				
 			  <div class="years">	 		
@@ -102,13 +102,47 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				 <span><h4>中南大学信息科学与工程学院就读本科</h4></span>
 				 <p>
 				 	1.　2009年中南大学新生军训先进个人<br>
-				 	2.　<a href="#yougan">2009-2010年度中南大学校级优秀学生干部</a><br>
+				 	2.　2009-2010年度中南大学校级优秀学生干部<br>
 				 	3.　2009-2010年度中南大学校级奖学金
 				 </p>
-				 <div id="shumo"><img src="images/数模竞赛.jpg" alt="数模竞赛图片"/></div>
-				 <div id="yougan"><img src="images/优秀学生干部.jpg" alt="优秀学生干部图片"/></div>
+				 <div id="shumo" class="sml_pic"><img src="images/数模竞赛.jpg" alt="数模竞赛图片"/></div>
+				 <div id="yougan" class="sml_pic"><img src="images/优秀学生干部.jpg" alt="优秀学生干部图片"/></div>
 			  </div> 
 			  <a class="arrow scroll" href="#skills"><span> </span></a>
+			  <script type="text/javascript">
+			  	$('.sml_pic').on('mouseenter',function(){
+					var srcValue = this.firstChild.src,
+						nodeNameStr = this.firstChild.nodeName;
+					var containDiv = document.createElement('div');
+					containDiv.className = 'big_pic_container';
+					if(this.id == 'chengji'){
+						containDiv.style.cssText = 'width:800px;height:400px;position:absolute;left:300px;top:0px;z-index:4;';
+					}else if(this.id == 'shumo'){
+						containDiv.style.cssText = 'width:800px;height:400px;position:absolute;left:300px;bottom:0;z-index:4;';
+					}else if(this.id == 'youxiu'){
+						containDiv.style.cssText = 'width:800px;height:400px;position:absolute;right:300px;top:0;z-index:4;';
+					}else{
+						containDiv.style.cssText = 'width:800px;height:400px;position:absolute;right:300px;bottom:0;z-index:4;';
+					}
+					this.appendChild(containDiv);
+
+					if(nodeNameStr == 'EMBED'){
+						var embedEle = document.createElement('embed');
+						embedEle.style.cssText = 'width:100%;height:100%;';
+						embedEle.src = srcValue;
+						containDiv.appendChild(embedEle);
+					}else{
+						var imgEle = document.createElement('img');
+						imgEle.style.cssText = 'width:100%;height:100%;';
+						imgEle.src = srcValue;
+						containDiv.appendChild(imgEle);
+					}
+			  	});
+
+			  	$('.sml_pic').on('mouseleave',function(){
+					$('.big_pic_container').remove();
+			  	});
+			  </script>
 		  </div>
 	  </div>
 	 <!------About Ends--------->
