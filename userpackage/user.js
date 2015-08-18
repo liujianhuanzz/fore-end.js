@@ -179,7 +179,8 @@ function popComment(context,str,leftpx,toppx){
 	eleDiv.style.width = '180px';
 	//eleDiv.style.height = '250px';
 	eleDiv.style.position = 'absolute';
-	eleDiv.style.backgroundColor = '#fff';
+	eleDiv.style.backgroundColor = '#0074cc';
+	eleDiv.style.color = '#fff';
 	eleDiv.style.border = '1px solid #000';
 	eleDiv.style.left = leftpx + 'px';
 	eleDiv.style.top = toppx + 'px';
