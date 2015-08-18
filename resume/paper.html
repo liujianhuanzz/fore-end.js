@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>基金项目相关论文</title>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
 <style type="text/css" media="screen">
 *{
 	margin: 0;
@@ -38,6 +39,25 @@ h3,p{
 		<embed class="item" src="An Optimized Dimensionality Reduction Model for High-dimensional Data based on Restricted Boltzmann Machines.pdf"></embed>
 		<embed class="item" src="Analysis of Class Group Distinguishing Based Conceptual Models for Multiple Fault Diagnosis.pdf"></embed>
 	</div>
+	<script type="text/javascript">
+	var prevObj = null;
+	$('.content').on('mousemove',function(e){
+
+		var e = e || window.event;
+
+		if(prevObj){
+			$(prevObj).attr('width','33%');
+		}
+
+		prevObj = e.target;
+		$(prevObj).attr('width','80%');
+	});
+
+	$('.content').on('mouseleave',function(){
+		var e = e || window.event;
+		$(prevObj).attr('width','33%');
+	});
+	</script>
 </div>
 </body>
 </html>
