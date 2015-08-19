@@ -573,6 +573,15 @@ p.copy-right a{
 	.skill-section h2 {
 		margin-top: 1.5em;
 	}
+	#chengji,#youxiu,#shumo,#yougan{
+		display: none;
+	}
+	.skills .years{
+		padding-left: 30px;
+	}
+	.skills .years h4{
+		line-height: 40px;
+	}
 	a.arrow {
 		margin: 1em 0 2em 0;
 	}
@@ -590,6 +599,16 @@ p.copy-right a{
 	}
 	.footer {
 		padding: 0 0 10em;
+	}
+	.contact_method{
+		list-style: none;
+		padding-top: 20px;
+		margin-left: -50px;
+	}
+	.contact_method li{
+		font-size: 20px;
+		line-height: 40px;
+		color: #fff;
 	}
 }
 @media (max-width:640px){
@@ -655,6 +674,15 @@ p.copy-right a{
 	.skill-section h2 {
 		margin-top: 1.5em;
 	}
+	#chengji,#youxiu,#shumo,#yougan{
+		display: none;
+	}
+	.skills .years{
+		padding-left: 30px;
+	}
+	.skills .years h4{
+		line-height: 40px;
+	}
 	a.arrow {
 		margin: 1em 0 2em 0;
 	}
@@ -689,6 +717,16 @@ p.copy-right a{
 	.bannerhead h3 {
 		font-size: 2em;
 		margin: 0.3em 0 0.3em;
+	}
+	.contact_method{
+		list-style: none;
+		padding-top: 20px;
+		margin-left: -50px;
+	}
+	.contact_method li{
+		font-size: 20px;
+		line-height: 40px;
+		color: #fff;
 	}
 }
 @media (max-width:480px){
@@ -759,6 +797,15 @@ p.copy-right a{
 	.skill-section h2 {
 		margin-top: 0.5em;
 	}
+	#chengji,#youxiu,#shumo,#yougan{
+		display: none;
+	}
+	.skills .years{
+		padding-left: 0;
+	}
+	.skills .years h4{
+		line-height: 25px;
+	}
 	a.arrow {
 		margin: 1em 0 2em 0;
 	}
@@ -814,6 +861,16 @@ p.copy-right a{
 		bottom: 1%;
 		left: 47%;
 	}
+	.contact_method{
+		list-style: none;
+		padding-top: 20px;
+		margin-left: -50px;
+	}
+	.contact_method li{
+		font-size: 18px;
+		line-height: 36px;
+		color: #fff;
+	}
 }
 @media (max-width:320px){
 	.container {
@@ -826,6 +883,15 @@ p.copy-right a{
 		width: 100%;
 		line-height: 1.6em;
 		padding: 0.5em 0 0 0;
+	}
+	#chengji,#youxiu,#shumo,#yougan{
+		display: none;
+	}
+	.skills .years{
+		padding-left: 0;
+	}
+	.skills .years h4{
+		line-height: 25px;
 	}
 	.portfolio-grid p {
 		margin: 1.2em 0em 0 0em;
@@ -959,5 +1025,15 @@ p.copy-right a{
 	.footer-right input[type="submit"] {
 		float: none;
 		width:100%
+	}
+	.contact_method{
+		list-style: none;
+		padding-top: 20px;
+		margin-left: -50px;
+	}
+	.contact_method li{
+		font-size: 15px;
+		line-height: 30px;
+		color: #fff;
 	}
 }
