@@ -99,7 +99,7 @@ body input[type="text"],body input[type="submit"],body textarea,body input[type=
     font-size:2.0em;
 }
 .bannerhead p{
-    color:#F1E9F2;
+    color:#100305;
     margin-top: 30px;
 }
 a.downarrow  span{
@@ -120,8 +120,16 @@ a.downarrow{
 }
 .banner-info{
 	position: relative;
-	top: 182px;
-	left: 11%;
+	top: 210px;
+	left: -40%;
+}
+.bannerhead .highlight{
+	position: absolute;
+	left: 400px;
+	top: -210px;
+	width: 700px;
+	height: 650px;
+	overflow: auto;
 }
 /*------ About STARTS---------*/
 .about{

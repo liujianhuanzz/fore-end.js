@@ -13,6 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<link href="./css/bootstrap.css" rel='stylesheet' type='text/css' />
 	<link href="./css/style.css" rel="stylesheet" type="text/css" media="all" />
 	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="themes/blackboard.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!---- start-smoth-scrolling---->
@@ -66,6 +67,48 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				      <p>有原则，不乱；有规划，不慌；有预算，不穷；有思考，不怠</p>
 				      <a class="btn btn-primary" href="pre-view.html">预览PDF简历</a>
 					  <a class="downarrow scroll" href="#about"><span> </span></a>
+					  <div class="highlight">
+					  <pre>
+					  	<code data-language="javascript">(function(IM,STATE,SINCE){
+    var now = new Date();						 
+    var profile = {
+        '姓名':'刘建环',
+        '年龄':(now.getFullYear()-SINCE),
+        '性别':'男',
+        '标签':['狮子座','宅','前端er'],
+        '喜欢':['计算机','互联网','编程','前端','交互设计','深度学习','NBA','零食...'],
+        '家乡':'山西朔州'
+    };
+    var HH = function(data){
+        this.profile = profile;
+        var that = this;
+        this.Dream = '成为更好的自己,成为父母的依靠,成为可以信赖的朋友,成为值得爱的人...';
+        this.Words = '有原则,不乱;有规划,不慌;有预算,不穷;有思考,不怠...';
+        this.profile.昵称 = IM;
+        this.profile.状态 = STATE;
+        this.OwnDream = function(){
+            return that.profile.梦想 = that.Dream;
+        };
+        this.MostLikeWords = function(){
+            return that.profile.座右铭 = that.Words;
+        };
+        this.SelfIntro = function(){
+            for(tag in that.profile){
+                if('object' == typeof(that.profile[tag])){
+                    that.profile[tag] = that.profile[tag].join(', ');
+                }
+                console.log(tag+':',that.profile[tag]);
+            }
+        };
+    };
+    var me = new HH( );
+        me.OwnDream();
+        me.MostLikeWords();
+        me.SelfIntro();
+})('刁蛮小蚕虫','Keep Moving......',1990)
+					  	</code>
+					  </pre>
+					  </div>
 			      </div>
 			 </div>
 			 <div class="clear"></div>
@@ -220,7 +263,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		 </div>
 	 </div>
 	 <a class="up scroll" href="#top-top"><span> </span></a>
-	  
+
+	  <script src="js/rainbow.js"></script>
+	  <script src="js/language/generic.js"></script>
+	  <script src="js/language/javascript.js"></script>
  </div>
  
  </body>
