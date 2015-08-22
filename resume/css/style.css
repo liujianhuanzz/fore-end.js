@@ -498,6 +498,9 @@ p.copy-right a{
 	.banner-info {
 		width: 80%;
 	}
+	.bannerhead .highlight{
+		display: none;
+	}
 	.footer-right input[type="text"], .footer-right textarea {
 		width: 87%;
 	}
@@ -540,6 +543,9 @@ p.copy-right a{
 	.headerbg {
 		min-height:500px;
 	}
+	.bannerhead .highlight{
+		display: none;
+	}
 	.banner-info {
 		top: 112px;
 		width: 100%;
@@ -558,6 +564,7 @@ p.copy-right a{
 	.bannerhead {
 		width: 84%;
 	}
+
 	.banner {
 		width: 100%;
 	}
@@ -634,6 +641,9 @@ p.copy-right a{
 	}
 	.banner-info {
 		width: 80%;
+	}
+	.bannerhead .highlight{
+		display: none;
 	}
 	.footer-right input[type="text"], .footer-right textarea {
 		width: 100%;
@@ -755,6 +765,9 @@ p.copy-right a{
 	}
 	.banner-info {
 		width: 80%;
+	}
+	.bannerhead .highlight{
+		display: none;
 	}
 	.footer-right input[type="text"], .footer-right textarea {
 		width: 100%;
@@ -911,6 +924,9 @@ p.copy-right a{
 	}
 	.banner-info {
 		width: 80%;
+	}
+	.bannerhead .highlight{
+		display: none;
 	}
 	.footer-right input[type="text"], .footer-right textarea {
 		width: 100%;
