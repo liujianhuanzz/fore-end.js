@@ -59,7 +59,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				 $('a[href="#intro"]').on('click',function(){
 					var introEle = document.getElementById('intro');
 					var displayValue = introEle.style.display;
-					if(displayValue === 'none'){
+					if(displayValue == 'none' || displayValue == ""){
 						introEle.style.display = 'block';
 					}else{
 						introEle.style.display = 'none';
