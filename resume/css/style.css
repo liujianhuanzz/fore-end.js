@@ -124,6 +124,7 @@ a.downarrow{
 	left: -40%;
 }
 .bannerhead .highlight{
+	display: none;
 	position: absolute;
 	left: 400px;
 	top: -210px;
