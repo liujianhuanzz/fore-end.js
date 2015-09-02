@@ -21,7 +21,13 @@ function initWaterful(images,parent){
 		oPic.appendChild(oImg);
 	}
 
-	setTimeout(waterfull,20);
+	if(oImg.addEventListener){
+		oImg.addEventListener('load',waterfull,false);
+	}else if(oImg.attachEvent){
+		oImg.attachEvent('onload',waterfull);
+	}else{
+		oImg.onload = waterfull;
+	}
 }
 
 function waterfull(){

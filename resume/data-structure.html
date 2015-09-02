@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>数据结构JavaScript描述</title>
+<link rel="stylesheet" type="text/css" href="themes/blackboard.css">
+<style type="text/css" media="screen">
+html,body{
+    width: 100%;
+}
+pre{
+	display: flex;
+	width: 90%;
+	margin: 5px auto;
+	justify-content:space-around;
+}
+code{
+	border-left: 1px dashed #fff;
+	padding: 0 10px;
+}
+code:first-child{
+	border-left: none;
+}
+</style>
+</head>
+<body>
+<pre>
+<code data-language="javascript">
+//栈结构
+function Stack(){
+    this.dataStore = [];
+    this.top = 0;
+    this.push = push;
+    this.pop = pop;
+    this.peek = peek;
+    this.length = length;
+}
+
+function push(element){
+    this.dataStore[this.top++] = element;
+}
+
+function peek(element){
+    return this.dataStore[this.top - 1];
+}
+
+function pop(){
+    return this.dataStore[--this.top];
+}
+
+function clear(){
+    this.top = 0;
+}
+
+function length(){
+    return this.top;
+}
+</code>
+<code data-language="javascript">
+//回文
+function isPalindrome(word){
+    var s = new Stack();
+    for(var i=0; i &lt; word.length; i++){
+        s.push(word[i]);
+    }
+    var rword = '';
+    while(s.length() &gt;0){
+        rword += s.pop();
+    }
+    if(word == rword){
+        return true;
+    }else{
+        return false;
+    }
+}
+isPalindrome('aarra');//false
+isPalindrome('aaraa');//true
+</code>
+<code data-language="javascript">
+//递归实现阶乘算法
+function factorial(n){
+    if(n === 0){
+        return 1;
+    }else{
+        return n * factorial(n - 1);
+    }
+}
+//栈操作实现阶乘算法
+function fact(n){
+    var s = new Stack();
+    while(n &gt; 1){
+        s.push(n--);
+    }
+    var product = 1;
+    while(s.length() &gt; 0){
+        product *= s.pop();
+    }
+    return product;
+}
+</code>
+</pre>
+<pre>
+<code data-language="javascript">
+//队列
+function Queue(){
+    this.dataStore = [];
+    this.enqueue = enqueue;
+    this.dequeue = dequeue;
+    this.first = first;
+    this.end = end;
+    this.toString = toString;
+    this.empty = empty;
+}
+//enqueue()方法向队尾添加一个元素
+function enqueue(element){
+    this.dataStore.push(element);
+}
+//dequeue()方法删除队首元素
+function dequeue(){
+    return this.dataStore.shift();
+}
+//读取队首和队尾的元素
+function first(){
+    return this.dataStore[0];
+}
+function end(){
+    return this.dataStore[this.dataStore.length - 1];
+}
+//toString()方法显示队列内的所有元素
+function toString(){
+    var retStr = '';
+    for(var i=0; i &lt; this.dataStore.length; i++){
+        retStr += this.dataStore[i] + '\n';
+    }
+    return retStr;
+}
+//empty()方法判断队列是否为空
+function empty(){
+    if(this.dataStore.length == 0){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+var q = new Queue();
+q.enqueue('hh1');
+q.enqueue('hh2');
+q.enqueue('hh3');
+console.log('队列头：' + q.first());//hh1;
+console.log('队列尾：' + q.end());//hh3;
+</code>
+<code data-language="javascript">
+//模拟jQuery,使用队列实现一个动画
+(function($){
+    window.$ = $;
+})(function(){
+    var rquickExpr = /^(?:#([\w-]*))$/;
+    function hQuery(selector){
+        return new hQuery.fn.init(selector);
+    }
+
+    var animation = function(){
+        var self = {};
+        var Queue = [];//动画队列
+        var fireing = false;//动画锁
+        var first = true;//通过add接口出发
+
+        var getStyle = function(obj,attr){
+            return obj.currentStyle ? 
+                   obj.currentStyle[attr] : 
+                   getComputedStyle(obj,false)[attr];
+        }
+
+        var makeAnim = function(element,options,func){
+            var width = options.width;
+            /*
+            包装具体的执行算法
+            CSS3
+            setTimeout
+            */
+            element.style.webkitTransitionDuration = '2000ms';
+            element.style.webkitTransform = 'translate3d(' + width + 'px,0,0)';
+            //监听动画完结
+            element.addEventListener('webkitTransitionEnd',function(){
+                func();
+            });
+        }
+
+        var _fire = function(){
+            //加入动画正在触发
+            if(!fireing){
+                var onceRun = Queue.shift();
+                if(onceRun){
+                    fireing = true;
+                    onceRun(function(){
+                        fireing = false;
+                        _fire();
+                    });
+                }else{
+                    fireing = true;
+                }
+            }
+        }
+
+        return self = {
+            //增加队列
+            add:function(element,options){
+                Queue.push(function(func){
+                    makeAnim(element,options,func);
+                });
+                //如果有一个队列立刻触发动画
+                if(first && Queue.length){
+                    first = false;
+                    self.fire();
+                }
+            },
+            //触发
+            fire:function(){
+                _fire();
+            }
+        };
+    }();
+
+    hQuery.fn = hQuery.prototype = {
+        run:function(options){
+            animation.add(this.element,options);
+            return this;
+        }
+    }
+    var init = hQuery.fn.init = function(selector){
+        var match = rquickExpr.exec(selector);
+        var element = document.getElementById(match[1]);
+        this.element = element;
+        return this;
+    }
+
+    init.prototype = hQuery.fn;
+
+    return hQuery;
+}());
+</code>
+</pre>
+<pre>
+<code data-language="javascript">
+//单向链表
+//创建节点
+function createNode(data){
+    this.data = data;
+    this.next = null;
+}
+//初始化头部节点,从headNode开始形成一条链条
+//通过next链接
+var headNode = new createNode("head");
+//在链表中找到对应的节点
+var findNode = function createFindNode(currNode){
+    return function(key){
+        //循环找到执行的节点，如果没有返回本身
+        while(currNode.data != key){
+            currNode = currNode.next;
+        }
+        return currNode;
+    }
+}(headNode);
+//插入一个新节点
+this.insert = function(data,key){
+    //创建一个新节点
+    var newNode = new createNode(data);
+    //在链条中找到对应的数据节点
+    //然后把新节点插入
+    var current = findNode(key);
+    //插入新的节点，更改引用关系
+    newNode.next = current.next;
+    current.next = newNode;
+}
+//查找指定节点的上一个节点
+var findPrevious = function(currNode){
+    return function(key){
+        while(!(currNode.next == null) && 
+            (currNode.next.data != key)){
+            currNode = currNode.next;
+        }
+        return currNode;
+    }
+}(headNode);
+//删除指定节点
+this.remove = function(key){
+    var prevNode = findPrevious(key);
+    if(!(prevNode.next == null)){
+        //修改链表关系
+        prevNode.next = prevNode.next.next;
+    }
+}
+</code>
+<code data-language="javascript">
+//双向链表
+//增加节点
+this.insert = function(data,key){
+    //创建一个新的节点
+    var newNode = new createNode(data);
+    //在链条中找到对应的数据节点，新节点插入
+    var current = findNode(key);
+    //更改引用关系
+    newNode.next = current.next;
+    newNode.previous = current;
+    current.next = newNode;
+}
+//删除节点
+this.remove = function(key){
+    var currNode = findNode(key);
+    if(!(currNode.next == null)){
+        currNode.previous.next = currNode.next;
+        currNode.next.previous = currNode.previous;
+        currNode.next = null;
+        currNode.previous = null;
+    }
+}
+</code>
+</pre>
+<pre>
+<code data-language="javascript">
+/*BF算法：
+从目标串s的第一个字符起和模式串t的第一个字符进行比较，
+若相等，则继续逐个比较后续字符，否则从串s的第二个字符起再重新和串t进行比较
+*/
+var sourceStr = "BBC ABB ABCF";
+var searchStr = "ABC";
+
+function BF_Ordinary(sourceStr,searchStr){
+    var sourceLength = sourceStr.length;
+    var searchLength = searchStr.length;
+    var padding = sourceLength - searchLength;//循环的次数
+    //BBC ABB ABCF => ABC => 搜索9次
+    for(var i=0; i &lt;= padding; i++){
+        //如果满足了第一个charAt是相等的
+        //开始子循环检测
+        //其中sourceStr的取值是需要叠加i的值
+        if(sourceStr.charAt(i) == searchStr.charAt(0)){
+            //匹配成功的数据
+            var complete = searchLength;
+            for(var j=0; j &lt; searchLength; j++){
+                if(sourceStr.charAt(i+j) == searchStr.charAt(j)){
+                    --complete;
+                    if(!complete){
+                        return i;
+                    }
+                }
+            }
+        }
+    }
+    return -1;
+}
+</code>
+</pre>
+<script src="js/rainbow.js"></script>
+<script src="js/language/generic.js"></script>
+<script src="js/language/javascript.js"></script>
+</body>
+</html>
