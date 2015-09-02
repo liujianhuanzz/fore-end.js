@@ -17,16 +17,17 @@ function initWaterful(images,parent){
 		oPic.className = 'pic';
 		oBox.appendChild(oPic);
 		var oImg = document.createElement('img');
+
+		if(oImg.addEventListener){
+			oImg.addEventListener('load',waterfull,false);
+		}else if(oImg.attachEvent){
+			oImg.attachEvent('onload',waterfull);
+		}else{
+			oImg.onload = waterfull;
+		}
+		
 		oImg.src = images['data'][i]['src'];
 		oPic.appendChild(oImg);
-	}
-
-	if(oImg.addEventListener){
-		oImg.addEventListener('load',waterfull,false);
-	}else if(oImg.attachEvent){
-		oImg.attachEvent('onload',waterfull);
-	}else{
-		oImg.onload = waterfull;
 	}
 }
 
