@@ -20,7 +20,7 @@ var startPoint = {'track':{'x':100,'y':500},
 
 $(document).ready(function(){
 
-	$('#wrap').load('imagepackage/demo.svg',function(){
+	$('#wrap').load('../imagepackage/demo.svg',function(){
 
 		$('#wrap > svg').width('100%').height('100%');
 
