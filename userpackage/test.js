@@ -270,7 +270,7 @@ var Click = {
 
 	//跟踪简易demo
 	testDemo:function (){
-		window.open('resume/demo.html');
+		window.open('../resume/demo.html');
 	},
 	//旋转木马
 	testCarousel:function (){
