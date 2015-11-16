@@ -324,6 +324,10 @@ var MouseEnter = {
 
 		var str = description['testChart'];
 		popComment(str,leftpx,toppx+40);
+	},
+	//栈结构
+	testStack:function(){
+		
 	}
 
 };
