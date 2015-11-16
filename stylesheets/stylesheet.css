@@ -448,7 +448,7 @@ a:hover {
 }
 
 header {
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 10px;
   font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
   background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
@@ -490,7 +490,7 @@ header h2 {
 }
 
 #content-wrapper {
-  padding-top: 30px;
+  padding-top: 10px;
   border-top: solid 1px #fff;
 }
 
@@ -550,9 +550,10 @@ header a.button {
   padding-top: 5px;
 }
 .personal_des{
-  margin-top: 80px;
+  margin-top: 35px;
   line-height: 2;
 }
+
 aside a.button {
   display: block;
   width: 138px;
@@ -560,6 +561,19 @@ aside a.button {
   margin-bottom: 20px;
   font-size: 21px;
   background: transparent url(../images/download-button.png) 0 0 no-repeat;
+}
+
+#copyRight{
+  width: 1200px;
+  margin: 0 auto;
+  border-top: 2px solid #ccc;
+  margin-top: 10px;
+}
+
+#copyRight p{
+  width: 600px;
+  text-align: center;
+  margin: 3px auto;
 }
 
 code, pre {
