@@ -16,24 +16,24 @@ user.css为模块中与用户相关的样式，可对其中属性和值适当进
 
 --------------modulepackage---------------------------
 
-一、fore-end.js中添加fe_draggable方法，调用形式：
-	1.实例化调用：$(selector).fe_draggable(object),其中object为可选参数，如果不填则默认$(selector)为handler;如果填入的话，格式为{'handler':handlername},handlername可以传入'.xxx'或者'#xxx'；
-	2.静态调用：$.fe_draggable(object),object为必填参数，格式为：{'element':selector,'handler':handlername},
-	selector和handlername都按照id或者类的方式传递，'.xxx'或者'#xxx';
+一、fore-end.js中添加`fe_draggable`方法，调用形式：
+	1.实例化调用：`$(selector).fe_draggable(object)`,其中`object`为可选参数，如果不填则默认`$(selector)`为`handler`;如果填入的话，格式为`{'handler':handlername},handlername`可以传入`'.xxx'`或者`'#xxx'`；
+	2.静态调用：`$.fe_draggable(object)`,`object`为必填参数，格式为：`{'element':selector,'handler':handlername}`,
+	`selector`和`handlername`都按照id或者类的方式传递，`'.xxx'`或者`'#xxx'`;
 
-二、fore-end.js中添加fe_login方法，调用形式：
-	1.实例化调用：$(selector).fe_login(object),其中selector为父容器，object格式为：{'title':title,'type':type,'page':page,'success':callback,'failure':callback},title为系统名称;type为提交方式，get和post;page为提交目标页面;success和failure分别登录成功和失败后需要执行的回调函数;
-	2.静态调用：$.fe_login(object),其中selector为父容器，object格式为：{'parent':selector,'title':title,'type':type,'page':page,'success':callback,'failure':callback},selector为父容器,title为系统名称;type为提交方式，get和post;page为提交目标页面;success和failure分别登录成功和失败后需要执行的回调函数;
-	3.说明：此方法需要与后台进行交互，传递给后台的数据名为username和password,验证成功则返回true，验证失败则返回false；
+二、fore-end.js中添加`fe_login`方法，调用形式：
+	1.实例化调用：`$(selector).fe_login(object)`,其中`selector`为父容器，`object`格式为：`{'title':title,'type':type,'page':page,'success':callback,'failure':callback}`,`title`为系统名称;`type`为提交方式，`get`和`post`;`page`为提交目标页面;`success`和`failure`分别登录成功和失败后需要执行的回调函数;
+	2.静态调用：`$.fe_login(object)`,其中`selector`为父容器，`object`格式为：`{'parent':selector,'title':title,'type':type,'page':page,'success':callback,'failure':callback}`,`selector`为父容器,`title`为系统名称;`type`为提交方式，`get`和`post`;`page`为提交目标页面;`success`和`failure`分别登录成功和失败后需要执行的回调函数;
+	3.说明：此方法需要与后台进行交互，传递给后台的数据名为`username`和`password`,验证成功则返回`true`，验证失败则返回`false`；
 
-三、fore-end.js中添加fe_getStyle方法，调用形式：
-	1.实例化调用：$(selector).fe_getStyle(attr);
-	2.静态调用：$.fe_getStyle(selector,attr);其中selector为id选择器或者类选择器或者元素，即'#xxx'或者'.xxx'或者element,attr为属性名;
+三、fore-end.js中添加`fe_getStyle`方法，调用形式：
+	1.实例化调用：`$(selector).fe_getStyle(attr)`;
+	2.静态调用：`$.fe_getStyle(selector,attr)`;其中`selector`为id选择器或者类选择器或者元素，即`'#xxx'`或者`'.xxx'`或者`element`,`attr`为属性名;
 
-四、fore-end.js中添加fe_addTable方法，调用形式：
-	1.实例化调用：$(selector).fe_addTable(obj);
-	2.静态调用：$.fe_addTable(selector,obj);其中selector为id选择器或者类选择器或者元素，即'#xxx'或者'.xxx'或者element,
-		obj的格式为：{
+四、fore-end.js中添加`fe_addTable`方法，调用形式：
+	1.实例化调用：`$(selector).fe_addTable(obj)`;
+	2.静态调用：`$.fe_addTable(selector,obj)`;其中`selector`为id选择器或者类选择器或者元素，即`'#xxx'`或者`'.xxx'`或者`element`,
+		`obj的格式为：{
 						'tableHeader':['参数一','参数二','参数三','参数四','参数五',...],
 						'tableContent':{
 										 '1':['参数一','参数二','参数三','参数四','参数五',...],
@@ -44,39 +44,38 @@ user.css为模块中与用户相关的样式，可对其中属性和值适当进
 										 ...
 										},
 						'callback':function(){alert('填写执行函数')}
-					}
+					}`
 
-五、fore-end.js中添加fe_drawChart方法，调用形式：
-	1.实例化调用：$(selector).fe_drawChart(obj);
-	2.静态调用：$.fe_drawChart(selector,obj);其中selector为id选择器或者类选择器或者元素，即'#xxx'或者'.xxx'或者element,
-		obj的格式为：{
+五、fore-end.js中添加`fe_drawChart`方法，调用形式：
+	1.实例化调用：`$(selector).fe_drawChart(obj)`;
+	2.静态调用：`$.fe_drawChart(selector,obj)`;其中`selector`为id选择器或者类选择器或者元素，即`'#xxx'`或者`'.xxx'`或者`element`,
+		`obj的格式为：{
 						'type':'column',
 						'title':'xxx曲线图',
 						'xValue':[1,2,3,4,5,6,7,8,9,10],
 						'series':[271.9,272.1,272.1,271.9,270.5,271.9,272.1,272.1,271.9,270.5]
-					}
-		其中type为图表类型，title为图表名称，xValue为横轴值，series为纵轴的值，两者长度须一致，此处较复杂，尽量根据不同的需求结合highcharts
+					}`
+		其中`type`为图表类型，`title`为图表名称，`xValue`为横轴值，`series`为纵轴的值，两者长度须一致，此处较复杂，尽量根据不同的需求结合highcharts
 		手册来进行自己写，这里只是当作一个实例给出
 	附：常用highcharts图表类型：折线图：line,曲线图：spline,点状图：scatter,柱状图：column,折线区域图：area,曲线区域图：areaspline;
 
-六、fore-end.js中添加fe_lockScreen遮罩锁屏方法，调用形式如下:
-	1.实例化调用：$(selector).fe_lockScreen(obj);
-	2.静态调用: $.fe_lockScreen(selector,obj);其中selector为id选择器或者类选择器或者元素，即'#xxx'或者'.xxx'或者element,
-		obj的格式为：{
+六、fore-end.js中添加`fe_lockScreen`遮罩锁屏方法，调用形式如下:
+	1.实例化调用：`$(selector).fe_lockScreen(obj)`;
+	2.静态调用: `$.fe_lockScreen(selector,obj)`;其中`selector`为id选择器或者类选择器或者元素，即`'#xxx'`或者`'.xxx'`或者`element`,
+		`obj的格式为：{
 						'isHandle':true,
 						'noticeWord':'提示话语',
-					}
-		其中isHandle为是否可操作，此处可操作表示锁屏是否可以手动关闭，还是等待程序关闭，可以手动则传入true，否则传入false，默认为false；
-			noticeWord为传入一句提示性话语;
+					}`
+		其中`isHandle`为是否可操作，此处可操作表示锁屏是否可以手动关闭，还是等待程序关闭，可以手动则传入`true`，否则传入`false`，默认为`false`；`noticeWord`为传入一句提示性话语;
 
-七、fore-end.js中添加fe_alert弹框警告方法替代自带的alert方法，调用形式：$.fe_alert('弹框警告');
+七、fore-end.js中添加`fe_alert`弹框警告方法替代自带的alert方法，调用形式：`$.fe_alert('弹框警告')`;
 
-八、fore-end.js中添加fe_confirm弹框警告方法替代自带的confirm方法，调用形式：$.fe_confirm('弹框确认',callback);其中callback为确认成功的执行函数
+八、fore-end.js中添加`fe_confirm`弹框警告方法替代自带的confirm方法，调用形式：`$.fe_confirm('弹框确认',callback)`;其中`callback`为确认成功的执行函数
 
-九、fore-end.js中添加fe_addMenu生成菜单方法,调用方法：
-	1.实例化调用：$(selector).fe_addMenu(obj);
-	2.静态调用: $.fe_addMenu(selector,obj);其中selector为id选择器或者类选择器或者元素，即'#xxx'或者'.xxx'或者element,
-		obj的格式为:{
+九、fore-end.js中添加`fe_addMenu`生成菜单方法,调用方法：
+	1.实例化调用：`$(selector).fe_addMenu(obj)`;
+	2.静态调用: `$.fe_addMenu(selector,obj)`;其中`selector`为id选择器或者类选择器或者元素，即`'#xxx'`或者`'.xxx'`或者`element`,
+		`obj的格式为:{
 						'一级菜单1':{
 							'二级菜单11':{
 								'三级菜单111':{},
@@ -106,13 +105,13 @@ user.css为模块中与用户相关的样式，可对其中属性和值适当进
 							'二级菜单52':{},
 							'二级菜单53':{}
 						}
-					}
+					}`
 		最多支持三级菜单
 
-十、fore-end.js中添加fe_unique数组去重,调用方法：$.fe_unique(array);
-十一、fore-end.js中添加fe_trim字符串去除两边空格,调用方法：$.fe_trim(array);
-十二、fore-end.js中添加fe_carousel方法,该功能是一个旋转木马的插件。HTML格式可以参考示例代码，
-	  		要点就在data-setting的设置以及加上相应的类, 调用形式：$.carousel();
+十、fore-end.js中添加`fe_unique`数组去重,调用方法：`$.fe_unique(array)`;
+十一、fore-end.js中添加`fe_trim`字符串去除两边空格,调用方法：`$.fe_trim(array)`;
+十二、fore-end.js中添加`fe_carousel`方法,该功能是一个旋转木马的插件。HTML格式可以参考示例代码，
+	  		要点就在`data-setting`的设置以及加上相应的类, 调用形式：`$.carousel()`;
 
 
 --------------csspackage--------------------------
