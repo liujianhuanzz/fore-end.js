@@ -457,6 +457,7 @@ header {
 
 header h1 {
   width: 540px;
+  height: 80px;
   margin-top: 0;
   margin-bottom: 0.2em;
   font-size: 72px;
@@ -464,6 +465,11 @@ header h1 {
   line-height: 1;
   color: #fff;
   letter-spacing: -1px;
+}
+
+header h1 img{
+  width: 120%;
+  height: 120%;
 }
 
 header h2 {
